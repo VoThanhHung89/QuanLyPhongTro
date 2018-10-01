@@ -65,6 +65,23 @@ namespace PhongTro
                 txtSoNuoc.Text = dgvPhong.Rows[dr - 1].Cells["chisonuoc"].Value.ToString();
             } 
             else if (dr == 0) MessageBox.Show("Hết phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            if (dgvPhong.SelectedRows.Count != 0)
+            {
+                int maphong = Convert.ToInt32(dgvPhong.CurrentRow.Cells["maphong"].Value);
+                DTOChiSoThang cstGanNgayNay = balCST.ChiSoGanVoiNgayCanTim(maphong, dtpNgayCapNhat.Value);
+                if (cstGanNgayNay != null)
+                {
+                    dtpNgayGanNhat.Value = cstGanNgayNay.ngaycapnhat;
+                    txtSoDienGanNhat.Text = cstGanNgayNay.chisodien.ToString();
+                    txtSoNuocGanNhat.Text = cstGanNgayNay.chisonuoc.ToString();
+                }
+                else
+                {
+                    txtSoDienGanNhat.Text = txtSoNuocGanNhat.Text = String.Empty;
+                }
+            }
         }
 
         private void btnXuong_Click(object sender, EventArgs e)
@@ -85,6 +102,22 @@ namespace PhongTro
                 txtSoNuoc.Text = dgvPhong.Rows[dr + 1].Cells["chisonuoc"].Value.ToString();
             }
             else MessageBox.Show("Hết phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            if (dgvPhong.SelectedRows.Count != 0)
+            {
+                int maphong = Convert.ToInt32(dgvPhong.CurrentRow.Cells["maphong"].Value);
+                DTOChiSoThang cstGanNgayNay = balCST.ChiSoGanVoiNgayCanTim(maphong, dtpNgayCapNhat.Value);
+                if (cstGanNgayNay != null)
+                {
+                    dtpNgayGanNhat.Value = cstGanNgayNay.ngaycapnhat;
+                    txtSoDienGanNhat.Text = cstGanNgayNay.chisodien.ToString();
+                    txtSoNuocGanNhat.Text = cstGanNgayNay.chisonuoc.ToString();
+                }
+                else
+                {
+                    txtSoDienGanNhat.Text = txtSoNuocGanNhat.Text = String.Empty;
+                }
+            }
         }
 
         private void btnLamLai_Click(object sender, EventArgs e)
@@ -135,6 +168,22 @@ namespace PhongTro
         {
             dgvPhong.DataSource = balCST.ChiSoTheoThoiGian(balP.GetAll(), dtpNgayCapNhat.Value);
             LoadData();
+
+            if(dgvPhong.SelectedRows.Count !=0 )
+            {
+                int maphong = Convert.ToInt32(dgvPhong.CurrentRow.Cells["maphong"].Value);
+                DTOChiSoThang cstGanNgayNay = balCST.ChiSoGanVoiNgayCanTim(maphong, dtpNgayCapNhat.Value);
+                if(cstGanNgayNay != null)
+                {
+                    dtpNgayGanNhat.Value = cstGanNgayNay.ngaycapnhat;
+                    txtSoDienGanNhat.Text = cstGanNgayNay.chisodien.ToString();
+                    txtSoNuocGanNhat.Text = cstGanNgayNay.chisonuoc.ToString();
+                }
+                else
+                {
+                    txtSoDienGanNhat.Text = txtSoNuocGanNhat.Text = String.Empty;
+                }
+            }
         }
 
         //Tìm kiếm

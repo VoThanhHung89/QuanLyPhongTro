@@ -90,6 +90,10 @@ namespace BAL
             }
             return dtoCST;
         }
+        public DTOChiSoThang ChiSoGanVoiNgayCanTim(int maphong, DateTime time)
+        {
+            return GetAll().Where(c => c.maphong == maphong && c.ngaycapnhat.Date < time.Date).OrderByDescending(c => c.ngaycapnhat).FirstOrDefault();
+        }
         public DTOChiSoThang ChiSoMoiNhat(int maphong)
         {
             DTOChiSoThang dtoCST = new DTOChiSoThang();
