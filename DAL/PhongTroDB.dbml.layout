@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.625, 8.5" name="PhongTroDB">
+  <DataContextMoniker Name="/PhongTroDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c8103386-bab3-4692-9dfb-ab3886e94578" absoluteBounds="11.375, 3.125, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PhongTroDBDataContext/CuocPhi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f36a7ff-d1c5-4a01-9222-259dfb72b1df" absoluteBounds="11.39, 3.5850000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d35ee11b-b8e3-48e9-8ffa-cc8751759dc3" absoluteBounds="8.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PhongTroDBDataContext/ThuePhong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f67eb6c-5988-4e63-840c-21268eac6849" absoluteBounds="8.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ec35c65a-a2fb-4418-a6f7-d7f1a5c0875b" absoluteBounds="3.25, 4, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PhongTroDBDataContext/ChiSoThang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd031e43-cea2-4bd1-bf8a-b7aa0061bfc5" absoluteBounds="3.2650000000000006, 4.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5c627dd-61b9-462b-9e43-6f1e3da866e7" absoluteBounds="0.5, 0.625, 2, 1.9631982421874998">
+      <DataClassMoniker Name="/PhongTroDBDataContext/ChuPhong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="650a89d4-b12f-4145-a4dc-56feccad660e" absoluteBounds="0.515, 1.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="887756cc-538a-4e9a-9b4e-775b30bb8dfb" absoluteBounds="3.25, 0.5, 2, 2.1554996744791661">
+      <DataClassMoniker Name="/PhongTroDBDataContext/LoaiPhong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b6a570b8-c820-4f00-b476-85ace8f121f8" absoluteBounds="3.265, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2a51c411-b129-4c45-b94a-c3e087dcf6f3" absoluteBounds="0.5, 2.875, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/PhongTroDBDataContext/MauHopDong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6f91852-e584-4b1b-9d8d-ed6de8a86638" absoluteBounds="0.515, 3.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2ee6af7a-c697-4b98-82a6-a88c2e279b26" absoluteBounds="0.5, 4.5, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/PhongTroDBDataContext/NguoiDung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e38a69de-e7d6-403a-8eac-e2a22a2fcf59" absoluteBounds="0.515, 4.9600000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76111d3b-627b-4a38-b8f9-898b9d290ce8" absoluteBounds="6, 0.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/PhongTroDBDataContext/Phong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="405dc53e-4603-46d1-a358-237c42bb55e7" absoluteBounds="6.015, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dcd4777d-208e-40c0-8691-3588bef6f433" absoluteBounds="9, 5.75, 2, 2.5401025390624987">
+      <DataClassMoniker Name="/PhongTroDBDataContext/ThanhToan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcf06918-c351-4455-91f6-76f9627b71bb" absoluteBounds="9.015, 6.2100000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.60659912109375); (3.25 : 1.60659912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/ChuPhong/ChuPhong_LoaiPhong" />
+      <nodes>
+        <classShapeMoniker Id="b5c627dd-61b9-462b-9e43-6f1e3da866e7" />
+        <classShapeMoniker Id="887756cc-538a-4e9a-9b4e-775b30bb8dfb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8 : 1.53929768880208); (8.75 : 1.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/Phong/Phong_ThuePhong" />
+      <nodes>
+        <classShapeMoniker Id="76111d3b-627b-4a38-b8f9-898b9d290ce8" />
+        <classShapeMoniker Id="d35ee11b-b8e3-48e9-8ffa-cc8751759dc3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 2.52089680989583); (5.625 : 2.89589680989583); (5.625 : 4.78929768880208); (5.25 : 4.78929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/Phong/Phong_ChiSoThang" />
+      <nodes>
+        <classShapeMoniker Id="76111d3b-627b-4a38-b8f9-898b9d290ce8" />
+        <classShapeMoniker Id="ec35c65a-a2fb-4418-a6f7-d7f1a5c0875b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 1.63544840494792); (6 : 1.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/LoaiPhong/LoaiPhong_Phong" />
+      <nodes>
+        <classShapeMoniker Id="887756cc-538a-4e9a-9b4e-775b30bb8dfb" />
+        <classShapeMoniker Id="76111d3b-627b-4a38-b8f9-898b9d290ce8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fa82bb1c-4304-4b1f-9a39-f49d77666073" absoluteBounds="11.25, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PhongTroDBDataContext/ChiuCuocPhi" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8edfcdb-f4a2-4bcb-b6fd-d894ba905537" absoluteBounds="11.265, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.3125 : 3.125); (12.3125 : 2.3862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/CuocPhi/CuocPhi_ChiuCuocPhi" />
+      <nodes>
+        <classShapeMoniker Id="c8103386-bab3-4692-9dfb-ab3886e94578" />
+        <classShapeMoniker Id="fa82bb1c-4304-4b1f-9a39-f49d77666073" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cb502a03-05aa-4f62-a828-cbc7786d06bc" absoluteBounds="8.625, 2.625, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/PhongTroDBDataContext/HopDong" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a744e356-c2d9-432a-a436-86397fa734fc" absoluteBounds="8.64, 3.085, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.6875 : 2.625); (9.6875 : 2.32859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/HopDong/HopDong_ThuePhong" />
+      <nodes>
+        <classShapeMoniker Id="cb502a03-05aa-4f62-a828-cbc7786d06bc" />
+        <classShapeMoniker Id="d35ee11b-b8e3-48e9-8ffa-cc8751759dc3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.8125 : 5.35740397135417); (9.8125 : 5.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/HopDong/HopDong_ThanhToan" />
+      <nodes>
+        <classShapeMoniker Id="cb502a03-05aa-4f62-a828-cbc7786d06bc" />
+        <classShapeMoniker Id="dcd4777d-208e-40c0-8691-3588bef6f433" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.625 : 2.625); (11.25 : 2.3862939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/HopDong/HopDong_ChiuCuocPhi" />
+      <nodes>
+        <classShapeMoniker Id="cb502a03-05aa-4f62-a828-cbc7786d06bc" />
+        <classShapeMoniker Id="fa82bb1c-4304-4b1f-9a39-f49d77666073" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9f2aac00-0801-4fae-bfe3-6d086445a53c" absoluteBounds="6.125, 3, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/PhongTroDBDataContext/Khach" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ec79527-857f-45e4-a69d-3a5fb611fea2" absoluteBounds="6.14, 3.46, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.125 : 3); (7.125 : 2.77089680989583); (8.25 : 2.77089680989583); (8.25 : 1.53929768880208); (8.75 : 1.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/PhongTroDBDataContext/Khach/Khach_ThuePhong" />
+      <nodes>
+        <classShapeMoniker Id="9f2aac00-0801-4fae-bfe3-6d086445a53c" />
+        <classShapeMoniker Id="d35ee11b-b8e3-48e9-8ffa-cc8751759dc3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

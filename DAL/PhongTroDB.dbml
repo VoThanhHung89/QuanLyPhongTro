@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PhongTro" Class="PhongTroDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=PhongTro;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="PhongTroConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CuocPhi" Member="CuocPhis">
+    <Type Name="CuocPhi">
+      <Column Name="MaCuocPhi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenCuocPhi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaCuocPhi" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ThongTin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="CuocPhi_ChiuCuocPhi" Member="ChiuCuocPhis" ThisKey="MaCuocPhi" OtherKey="MaCuocPhi" Type="ChiuCuocPhi" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThuePhong" Member="ThuePhongs">
+    <Type Name="ThuePhong">
+      <Column Name="MaPhong" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaKhach" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaHopDong" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ChuPhong" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Phong_ThuePhong" Member="Phong" ThisKey="MaPhong" OtherKey="MaPhong" Type="Phong" IsForeignKey="true" />
+      <Association Name="HopDong_ThuePhong" Member="HopDong" ThisKey="MaHopDong" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
+      <Association Name="Khach_ThuePhong" Member="Khach" ThisKey="MaKhach" OtherKey="MaKhach" Type="Khach" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChiSoThang" Member="ChiSoThangs">
+    <Type Name="ChiSoThang">
+      <Column Name="MaPhong" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ChiSoDien" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ChiSoNuoc" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Phong_ChiSoThang" Member="Phong" ThisKey="MaPhong" OtherKey="MaPhong" Type="Phong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChuPhong" Member="ChuPhongs">
+    <Type Name="ChuPhong">
+      <Column Name="MaChuPhong" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenChuPhong" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SoDinhDanh" Type="System.String" DbType="NChar(12) NOT NULL" CanBeNull="false" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="ChuPhong_LoaiPhong" Member="LoaiPhongs" ThisKey="MaChuPhong" OtherKey="MaChuPhong" Type="LoaiPhong" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LoaiPhong" Member="LoaiPhongs">
+    <Type Name="LoaiPhong">
+      <Column Name="MaLoaiPhong" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaChuPhong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenLoaiPhong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GiaThue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoKhach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ThongTin" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="LoaiPhong_Phong" Member="Phongs" ThisKey="MaLoaiPhong" OtherKey="MaLoaiPhong" Type="Phong" />
+      <Association Name="ChuPhong_LoaiPhong" Member="ChuPhong" ThisKey="MaChuPhong" OtherKey="MaChuPhong" Type="ChuPhong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MauHopDong" Member="MauHopDongs">
+    <Type Name="MauHopDong">
+      <Column Name="MaMauThongTin" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenMauThongTin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ThongTinTrenHopDong" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NguoiDung" Member="NguoiDungs">
+    <Type Name="NguoiDung">
+      <Column Name="MaNguoiDung" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDangNhap" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MaDangNhap" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="Admin" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phong" Member="Phongs">
+    <Type Name="Phong">
+      <Column Name="MaPhong" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MaLoaiPhong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenPhong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TinhTrangPhong" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="Phong_ThuePhong" Member="ThuePhongs" ThisKey="MaPhong" OtherKey="MaPhong" Type="ThuePhong" />
+      <Association Name="Phong_ChiSoThang" Member="ChiSoThangs" ThisKey="MaPhong" OtherKey="MaPhong" Type="ChiSoThang" />
+      <Association Name="LoaiPhong_Phong" Member="LoaiPhong" ThisKey="MaLoaiPhong" OtherKey="MaLoaiPhong" Type="LoaiPhong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThanhToan" Member="ThanhToans">
+    <Type Name="ThanhToan">
+      <Column Name="MaThanhToan" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaHopDong" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThoiGianBatDau" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ThoiGianKetThuc" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TinhTrangThanhToan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TienCuocPhi" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="TienPhiKhac" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ThoiGianThanhToan" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Association Name="HopDong_ThanhToan" Member="HopDong" ThisKey="MaHopDong" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ChiuCuocPhi" Member="ChiuCuocPhis">
+    <Type Name="ChiuCuocPhi">
+      <Column Name="MaHopDong" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaCuocPhi" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CuocPhi_ChiuCuocPhi" Member="CuocPhi" ThisKey="MaCuocPhi" OtherKey="MaCuocPhi" Type="CuocPhi" IsForeignKey="true" />
+      <Association Name="HopDong_ChiuCuocPhi" Member="HopDong" ThisKey="MaHopDong" OtherKey="MaHopDong" Type="HopDong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HopDong" Member="HopDongs">
+    <Type Name="HopDong">
+      <Column Name="MaHopDong" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NgayThue" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="NgayTra" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NgayLamHopDong" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TienCoc" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="GiaThue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ChiSoDien" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ChiSoNuoc" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="HopDong_ThuePhong" Member="ThuePhongs" ThisKey="MaHopDong" OtherKey="MaHopDong" Type="ThuePhong" />
+      <Association Name="HopDong_ThanhToan" Member="ThanhToans" ThisKey="MaHopDong" OtherKey="MaHopDong" Type="ThanhToan" />
+      <Association Name="HopDong_ChiuCuocPhi" Member="ChiuCuocPhis" ThisKey="MaHopDong" OtherKey="MaHopDong" Type="ChiuCuocPhi" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Khach" Member="Khaches">
+    <Type Name="Khach">
+      <Column Name="MaKhach" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenKhach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="SoDinhDanh" Type="System.String" DbType="NChar(12)" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Hinh" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TinhTrangHonNhan" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="DangKyTamTru" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Khach_ThuePhong" Member="ThuePhongs" ThisKey="MaKhach" OtherKey="MaKhach" Type="ThuePhong" />
+    </Type>
+  </Table>
+  <Function Name="dbo.CuocPhi_Sua" Method="CuocPhi_Sua">
+    <Parameter Name="macuocphi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tencuocphi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="giacuocphi" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="thongtin" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThuePhong_Them" Method="ThuePhong_Them">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="makhach" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="chuphong" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CuocPhi_Them" Method="CuocPhi_Them">
+    <Parameter Name="tencuocphi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="giacuocphi" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="thongtin" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CuocPhi_Xoa" Method="CuocPhi_Xoa">
+    <Parameter Name="macuocphi" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChiSoThang_Sua" Method="ChiSoThang_Sua">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngaycapnhat" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="chisodien" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="chisonuoc" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChiSoThang_Them" Method="ChiSoThang_Them">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngaycapnhat" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="sodien" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="sonuoc" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChiSoThang_Xoa" Method="ChiSoThang_Xoa">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngaycapnhat" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChuPhong_Sua" Method="ChuPhong_Sua">
+    <Parameter Name="machuphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tenchuphong" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="gioitinh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sodinhdanh" Type="System.String" DbType="NChar(12)" />
+    <Parameter Name="sodienthoai" Type="System.String" DbType="NChar(12)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChuPhong_Them" Method="ChuPhong_Them">
+    <Parameter Name="tenchuphong" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="gioitinh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sodinhdanh" Type="System.String" DbType="NChar(12)" />
+    <Parameter Name="sodienthoai" Type="System.String" DbType="NChar(12)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChuPhong_Xoa" Method="ChuPhong_Xoa">
+    <Parameter Name="machuphong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LoaiPhong_Sua" Method="LoaiPhong_Sua">
+    <Parameter Name="maloaiphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="machuphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tenloaiphong" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="giathue" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="sokhach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="thongtin" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LoaiPhong_Them" Method="LoaiPhong_Them">
+    <Parameter Name="machuphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tenloaiphong" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="giathue" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="sokhach" Type="System.Int32" DbType="Int" />
+    <Parameter Name="thongtin" Type="System.String" DbType="NVarChar(1000)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LoaiPhong_Xoa" Method="LoaiPhong_Xoa">
+    <Parameter Name="maloaiphong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NguoiDung_Sua" Method="NguoiDung_Sua">
+    <Parameter Name="manguoidung" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tendangnhap" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="madangnhap" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="admin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NguoiDung_Them" Method="NguoiDung_Them">
+    <Parameter Name="tendangnhap" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="madangnhap" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="admin" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NguoiDung_Xoa" Method="NguoiDung_Xoa">
+    <Parameter Name="manguoidung" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Phong_Sua" Method="Phong_Sua">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="maloaiphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tenphong" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinhtrangphong" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Phong_Them" Method="Phong_Them">
+    <Parameter Name="maloaiphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tenphong" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="status" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="tinhtrangphong" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChiuCuocPhi_Them" Method="ChiuCuocPhi_Them">
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="macuocphi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="soluong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HopDong_Sua" Method="HopDong_Sua">
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ngaythue" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ngaytra" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ngaylamhopdong" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="tiencoc" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="giathue" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="chisodien" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="chisonuoc" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ghichu" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChiuCuocPhi_Sua" Method="ChiuCuocPhi_Sua">
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="macuocphi" Type="System.Int32" DbType="Int" />
+    <Parameter Name="soluong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ChiuCuocPhi_Xoa" Method="ChiuCuocPhi_Xoa">
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="macuocphi" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThuePhong_Sua" Method="ThuePhong_Sua">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="makhach" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="chuphong" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ThuePhong_Xoa" Method="ThuePhong_Xoa">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Parameter Name="makhach" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HopDong_Them" Method="HopDong_Them">
+    <Parameter Name="ngaythue" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ngaytra" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ngaylamhopdong" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="tiencoc" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="giathue" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="chisodien" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="chisonuoc" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ghichu" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Khach_Sua" Method="Khach_Sua">
+    <Parameter Name="makhach" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="tenkhach" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="gioitinh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sodinhdanh" Type="System.String" DbType="NChar(12)" />
+    <Parameter Name="sodienthoai" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="hinh" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tinhtranghonnhan" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="dangkytamtru" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Khach_Them" Method="Khach_Them">
+    <Parameter Name="tenkhach" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ngaysinh" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="gioitinh" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="sodinhdanh" Type="System.String" DbType="NChar(12)" />
+    <Parameter Name="sodienthoai" Type="System.String" DbType="NChar(50)" />
+    <Parameter Name="diachi" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="hinh" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="tinhtranghonnhan" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="dangkytamtru" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.HopDong_Xoa" Method="HopDong_Xoa">
+    <Parameter Name="mahopdong" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Phong_Xoa" Method="Phong_Xoa">
+    <Parameter Name="maphong" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Khach_Xoa" Method="Khach_Xoa">
+    <Parameter Name="makhach" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
