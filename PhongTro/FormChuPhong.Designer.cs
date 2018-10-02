@@ -56,7 +56,7 @@
             this.txtTenChuPhong.Location = new System.Drawing.Point(121, 75);
             this.txtTenChuPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenChuPhong.Name = "txtTenChuPhong";
-            this.txtTenChuPhong.Size = new System.Drawing.Size(342, 25);
+            this.txtTenChuPhong.Size = new System.Drawing.Size(443, 25);
             this.txtTenChuPhong.TabIndex = 0;
             // 
             // label2
@@ -87,7 +87,7 @@
             this.txtSoDinhDanh.Location = new System.Drawing.Point(121, 135);
             this.txtSoDinhDanh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSoDinhDanh.Name = "txtSoDinhDanh";
-            this.txtSoDinhDanh.Size = new System.Drawing.Size(342, 25);
+            this.txtSoDinhDanh.Size = new System.Drawing.Size(443, 25);
             this.txtSoDinhDanh.TabIndex = 3;
             // 
             // label4
@@ -107,7 +107,7 @@
             this.txtSoDienThoai.Location = new System.Drawing.Point(121, 163);
             this.txtSoDienThoai.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSoDienThoai.Name = "txtSoDienThoai";
-            this.txtSoDienThoai.Size = new System.Drawing.Size(342, 25);
+            this.txtSoDienThoai.Size = new System.Drawing.Size(443, 25);
             this.txtSoDienThoai.TabIndex = 4;
             // 
             // label5
@@ -129,7 +129,7 @@
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDiaChi.Size = new System.Drawing.Size(342, 197);
+            this.txtDiaChi.Size = new System.Drawing.Size(443, 95);
             this.txtDiaChi.TabIndex = 5;
             // 
             // label6
@@ -168,18 +168,17 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLuu.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLuu.Location = new System.Drawing.Point(353, 392);
+            this.btnLuu.Location = new System.Drawing.Point(476, 0);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(110, 30);
+            this.btnLuu.Size = new System.Drawing.Size(50, 42);
             this.btnLuu.TabIndex = 6;
-            this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -193,7 +192,7 @@
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(417, 0);
+            this.btnThoat.Location = new System.Drawing.Point(526, 0);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(50, 42);
             this.btnThoat.TabIndex = 7;
@@ -203,18 +202,17 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.Location = new System.Drawing.Point(237, 392);
+            this.btnClear.Location = new System.Drawing.Point(427, 0);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(110, 30);
+            this.btnClear.Size = new System.Drawing.Size(50, 42);
             this.btnClear.TabIndex = 11;
-            this.btnClear.Text = "Làm lại";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Visible = false;
@@ -225,10 +223,12 @@
             this.panel1.BackColor = System.Drawing.Color.Orange;
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btnThoat);
+            this.panel1.Controls.Add(this.btnLuu);
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(467, 42);
+            this.panel1.Size = new System.Drawing.Size(576, 42);
             this.panel1.TabIndex = 68;
             // 
             // label7
@@ -250,7 +250,7 @@
             this.txtMaChuPhong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaChuPhong.Name = "txtMaChuPhong";
             this.txtMaChuPhong.ReadOnly = true;
-            this.txtMaChuPhong.Size = new System.Drawing.Size(342, 25);
+            this.txtMaChuPhong.Size = new System.Drawing.Size(131, 25);
             this.txtMaChuPhong.TabIndex = 69;
             // 
             // label1
@@ -269,13 +269,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(467, 426);
+            this.ClientSize = new System.Drawing.Size(576, 292);
             this.ControlBox = false;
             this.Controls.Add(this.txtMaChuPhong);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.rdbNu);
             this.Controls.Add(this.rdbNam);
             this.Controls.Add(this.txtDiaChi);

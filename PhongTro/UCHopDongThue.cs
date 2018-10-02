@@ -261,7 +261,7 @@ namespace PhongTro
             {
                 if (dgvHopDong.Rows[e.RowIndex].Cells["giatrihopdong"].Value.ToString() != "Đã hết hạn")
                 {
-                    FormChuyenPhongChoHopDong frm = new FormChuyenPhongChoHopDong();
+                    FormChuyenPhong frm = new FormChuyenPhong();
                     frm.ShowDialog();
                 }
                 else MessageBox.Show("Thao tác bị từ chối vì Hợp đồng đã hết hạn.", "Thông báo");

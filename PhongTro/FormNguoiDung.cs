@@ -149,5 +149,6 @@ namespace PhongTro
             else
                 txtMaDangNhap.UseSystemPasswordChar = txtNhapLaiMa.UseSystemPasswordChar = true;
         }
+        
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSCuocPhi));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,11 +36,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDSCuocPhi));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.dgvCuocPhi = new System.Windows.Forms.DataGridView();
-            this.btnDuyet = new System.Windows.Forms.Button();
             this.chon = new System.Windows.Forms.DataGridViewLinkColumn();
             this.tencuocphi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tang = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -50,6 +49,7 @@
             this.giacuocphi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.xem = new System.Windows.Forms.DataGridViewLinkColumn();
             this.macuocphi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDuyet = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuocPhi)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +57,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Orange;
+            this.panel1.Controls.Add(this.btnDuyet);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -136,24 +137,6 @@
             this.dgvCuocPhi.Size = new System.Drawing.Size(660, 373);
             this.dgvCuocPhi.TabIndex = 77;
             this.dgvCuocPhi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuocPhi_CellContentClick);
-            // 
-            // btnDuyet
-            // 
-            this.btnDuyet.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnDuyet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDuyet.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnDuyet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDuyet.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDuyet.Image = ((System.Drawing.Image)(resources.GetObject("btnDuyet.Image")));
-            this.btnDuyet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDuyet.Location = new System.Drawing.Point(535, 417);
-            this.btnDuyet.Name = "btnDuyet";
-            this.btnDuyet.Size = new System.Drawing.Size(118, 30);
-            this.btnDuyet.TabIndex = 78;
-            this.btnDuyet.Text = "Duyệt";
-            this.btnDuyet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDuyet.UseVisualStyleBackColor = false;
-            this.btnDuyet.Click += new System.EventHandler(this.btnDuyet_Click);
             // 
             // chon
             // 
@@ -252,14 +235,30 @@
             this.macuocphi.Name = "macuocphi";
             this.macuocphi.Visible = false;
             // 
+            // btnDuyet
+            // 
+            this.btnDuyet.BackColor = System.Drawing.Color.Transparent;
+            this.btnDuyet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDuyet.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnDuyet.FlatAppearance.BorderSize = 0;
+            this.btnDuyet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDuyet.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDuyet.Image = ((System.Drawing.Image)(resources.GetObject("btnDuyet.Image")));
+            this.btnDuyet.Location = new System.Drawing.Point(562, 0);
+            this.btnDuyet.Name = "btnDuyet";
+            this.btnDuyet.Size = new System.Drawing.Size(50, 42);
+            this.btnDuyet.TabIndex = 78;
+            this.btnDuyet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDuyet.UseVisualStyleBackColor = false;
+            this.btnDuyet.Click += new System.EventHandler(this.btnDuyet_Click);
+            // 
             // FormDSCuocPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(660, 450);
+            this.ClientSize = new System.Drawing.Size(660, 416);
             this.ControlBox = false;
-            this.Controls.Add(this.btnDuyet);
             this.Controls.Add(this.dgvCuocPhi);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

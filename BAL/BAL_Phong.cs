@@ -96,34 +96,6 @@ namespace BAL
                 return liDtoP;
             }
         }
-        /// <summary>
-        /// True:Trống False:Còn cho thuê
-        /// </summary>
-        /// <param name="maphong"></param>
-        /// <param name="ngaythuedukien">Ngày thuê dự kiến</param>
-        /// <returns></returns>
-        public bool TinhTrangPhongKhiLamHopDong(int maphong, DateTime ngaythuedukien, DateTime? ngaytradukien)
-        {
-            bool result = true;
-
-            BAL_ThuePhong balTP = new BAL_ThuePhong();
-            BAL_HopDong balHD = new BAL_HopDong();
-
-            foreach(Int64 mahopdong in balTP.DanhSachMaHopDongTheoMaPhong(maphong))
-            {
-                DTOHopDong dtoHD = balHD.DetailHopDong(mahopdong);
-                if(dtoHD.ngaythue.Date < ngaythuedukien.Date)
-                {
-                    if (dtoHD.ngaytra == null || ngaythuedukien.Date < Convert.ToDateTime(dtoHD.ngaytra).Date) result = false;
-                }
-                else
-                {
-                    if (ngaytradukien == null || dtoHD.ngaythue.Date < Convert.ToDateTime(ngaytradukien).Date) result = false;
-                }
-            }
-
-            return result;
-        }
         public void ThemPhong(DTOPhong dtoP)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())

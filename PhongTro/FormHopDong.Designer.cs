@@ -43,6 +43,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnLuuHD = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnThemCuocPhi = new System.Windows.Forms.Button();
@@ -80,8 +82,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnLuuHD = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.cboPhong = new System.Windows.Forms.ComboBox();
             this.txtThongTinPhong = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -99,6 +99,8 @@
             this.panel1.BackColor = System.Drawing.Color.Orange;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnThoat);
+            this.panel1.Controls.Add(this.btnLuuHD);
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -133,6 +135,41 @@
             this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnLuuHD
+            // 
+            this.btnLuuHD.BackColor = System.Drawing.Color.Transparent;
+            this.btnLuuHD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLuuHD.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnLuuHD.FlatAppearance.BorderSize = 0;
+            this.btnLuuHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLuuHD.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuHD.Image = ((System.Drawing.Image)(resources.GetObject("btnLuuHD.Image")));
+            this.btnLuuHD.Location = new System.Drawing.Point(1129, 0);
+            this.btnLuuHD.Name = "btnLuuHD";
+            this.btnLuuHD.Size = new System.Drawing.Size(50, 42);
+            this.btnLuuHD.TabIndex = 107;
+            this.btnLuuHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLuuHD.UseVisualStyleBackColor = false;
+            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(1080, 0);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(50, 42);
+            this.btnClear.TabIndex = 108;
+            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Visible = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtGhiChu
             // 
@@ -202,6 +239,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCuocPhi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCuocPhi.ColumnHeadersHeight = 40;
+            this.dgvCuocPhi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCuocPhi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tencuocphi,
             this.soluong,
@@ -222,7 +260,7 @@
             this.dgvCuocPhi.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvCuocPhi.RowTemplate.Height = 25;
             this.dgvCuocPhi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCuocPhi.Size = new System.Drawing.Size(353, 348);
+            this.dgvCuocPhi.Size = new System.Drawing.Size(353, 384);
             this.dgvCuocPhi.TabIndex = 101;
             this.dgvCuocPhi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuocPhi_CellContentClick);
             // 
@@ -376,6 +414,7 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvKhach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvKhach.ColumnHeadersHeight = 40;
+            this.dgvKhach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvKhach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hinh,
             this.tenkhach,
@@ -647,43 +686,6 @@
             this.label5.TabIndex = 79;
             this.label5.Text = "Ngày làm HĐ:";
             // 
-            // btnLuuHD
-            // 
-            this.btnLuuHD.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnLuuHD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLuuHD.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnLuuHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuuHD.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuHD.Image = ((System.Drawing.Image)(resources.GetObject("btnLuuHD.Image")));
-            this.btnLuuHD.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLuuHD.Location = new System.Drawing.Point(1088, 440);
-            this.btnLuuHD.Name = "btnLuuHD";
-            this.btnLuuHD.Size = new System.Drawing.Size(137, 30);
-            this.btnLuuHD.TabIndex = 107;
-            this.btnLuuHD.Text = "Lưu hợp đồng";
-            this.btnLuuHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLuuHD.UseVisualStyleBackColor = false;
-            this.btnLuuHD.Click += new System.EventHandler(this.btnLuuHD_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.DarkKhaki;
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.Location = new System.Drawing.Point(946, 440);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(137, 30);
-            this.btnClear.TabIndex = 108;
-            this.btnClear.Text = "Làm lại";
-            this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Visible = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // cboPhong
             // 
             this.cboPhong.BackColor = System.Drawing.Color.White;
@@ -731,8 +733,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtThongTinPhong);
             this.Controls.Add(this.cboPhong);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnLuuHD);
             this.Controls.Add(this.txtGhiChu);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label12);

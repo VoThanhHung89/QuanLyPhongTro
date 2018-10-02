@@ -91,18 +91,17 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLuu.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLuu.Location = new System.Drawing.Point(415, 286);
+            this.btnLuu.Location = new System.Drawing.Point(428, 0);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(110, 30);
+            this.btnLuu.Size = new System.Drawing.Size(50, 42);
             this.btnLuu.TabIndex = 56;
-            this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -208,18 +207,17 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.Location = new System.Drawing.Point(299, 286);
+            this.btnClear.Location = new System.Drawing.Point(379, 0);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(110, 30);
+            this.btnClear.Size = new System.Drawing.Size(50, 42);
             this.btnClear.TabIndex = 76;
-            this.btnClear.Text = "Làm lại";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Visible = false;
@@ -229,7 +227,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Orange;
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnThoat);
+            this.panel1.Controls.Add(this.btnLuu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -253,10 +253,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(528, 321);
+            this.ClientSize = new System.Drawing.Size(528, 284);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtTinhTrang);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -264,7 +263,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTenPhong);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtMaPhong);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

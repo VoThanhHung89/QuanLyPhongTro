@@ -107,6 +107,25 @@ namespace BAL
             }
         }
         /// <summary>
+        /// True:Hợp lệ, không trùng hợp đồng khác. False:Không hợp lệ, có trùng ngày với hợp đồng khác
+        /// </summary>
+        /// <param name="hdCheck"></param>
+        /// <param name="lihd">Bao gồm hd hiện tại và tương lai của phòng.</param>
+        /// <returns></returns>
+        public bool KiemTraHopLeHopDong(DTOHopDong dtoHDCheck, List<DTOHopDong> liDtoHD)
+        {
+            bool result = false;
+
+            foreach(DTOHopDong dtoHD in liDtoHD)
+            {
+                if (dtoHDCheck.ngaythue.Date < dtoHD.ngaythue.Date && dtoHDCheck.ngaytra != null && Convert.ToDateTime(dtoHDCheck.ngaytra).Date < dtoHD.ngaythue.Date)
+                    result = true;
+                if (dtoHDCheck.ngaythue.Date > dtoHD.ngaythue.Date && dtoHD.ngaytra != null && dtoHDCheck.ngaythue.Date > Convert.ToDateTime(dtoHD.ngaytra).Date)
+                    result = true;
+            }
+            return result;
+        }
+        /// <summary>
         /// -1:Hết hạn 0:Còn hạn 1:Tương lai
         /// </summary>
         /// <param name="mahopdong"></param>
@@ -146,6 +165,16 @@ namespace BAL
                 if (dtoHD.ngaythue.Date > DateTime.Now.Date) liDtoHDTL.Add(dtoHD);
             }
             return liDtoHDTL;
+        }
+        public List<DTOHopDong> HopDongHienTaiVaTuongLai(int maphong)
+        {
+            List<DTOHopDong> liDtoHD = new List<DTOHopDong>();
+            liDtoHD = HopDongTrongTuongLai(maphong);
+            if (HopDongHienTai(maphong).mahopdong != 0)
+            {
+                liDtoHD.Add(HopDongHienTai(maphong));
+            }
+            return liDtoHD;
         }
         public void ThemHopDong(DTOHopDong dtoHD)
         {

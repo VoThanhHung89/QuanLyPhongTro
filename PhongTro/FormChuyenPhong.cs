@@ -12,30 +12,49 @@ using BAL;
 
 namespace PhongTro
 {
-    public partial class FormChuyenPhongChoHopDong : Form
+    public partial class FormChuyenPhong : Form
     {
-        public FormChuyenPhongChoHopDong()
+        public FormChuyenPhong()
         {
             InitializeComponent();
         }
+        BAL_Khach balK = new BAL_Khach();
         BAL_LoaiPhong balLP = new BAL_LoaiPhong();
         BAL_Phong balP = new BAL_Phong();
+        BAL_ThuePhong balTP = new BAL_ThuePhong();
         BAL_HopDong balHD = new BAL_HopDong();
+        public static int maphongOld;
 
-        private void FormChuyenPhongChoHopDong_Load(object sender, EventArgs e)
+        private void FormChuyenPhong_Load(object sender, EventArgs e)
         {
             cboTimKiem.SelectedIndex = 0;
+            //Tải hợp đồng hiện tại và tương lai của phòng
+            dgvHopDong.Rows.Clear();
+            DTOHopDong hd = balHD.HopDongHienTai(maphongOld);
+            if (hd.mahopdong != 0)
+            {
+                string TenChuThuePhongHienTai = balK.DetailKhach(balTP.MaChuPhong(maphongOld, hd.mahopdong)).tenkhach;
+                dgvHopDong.Rows.Add(false, hd.mahopdong, hd.ngaylamhopdong, hd.ngaythue, hd.ngaytra, TenChuThuePhongHienTai);
+            }
+            foreach(DTOHopDong hdtl in balHD.HopDongTrongTuongLai(maphongOld))
+            {
+                string TenChuThuePhongTuongLai = balK.DetailKhach(balTP.MaChuPhong(maphongOld, hdtl.mahopdong)).tenkhach;
+                dgvHopDong.Rows.Add(false, hd.mahopdong, hdtl.ngaylamhopdong, hdtl.ngaythue, hdtl.ngaytra, TenChuThuePhongTuongLai);
+            }
             //Tải danh sách Phòng.
             foreach (DTOPhong p in balP.GetAll())
             {
-                string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
-                dgvPhong.Rows.Add(tenloai, p.tenphong, p.maphong);
+                if(p.maphong != maphongOld)
+                {
+                    string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
+                    dgvPhong.Rows.Add(false , tenloai, p.tenphong, p.maphong);
+                }
             }
         }
 
         private void dgvPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if(dgvPhong.Columns[e.ColumnIndex].Name == "chon" && e.RowIndex > -1)
             {
                 txtThongTinPhong.Clear();
                 txtThongTinPhong.Text += "Phòng được chọn: " + dgvPhong.Rows[e.RowIndex].Cells["tenphong"].Value.ToString() + Environment.NewLine;
@@ -59,6 +78,12 @@ namespace PhongTro
                         else txtThongTinPhong.Text += "( Chưa xác định )" + Environment.NewLine;
                     }
                 }
+                foreach(DataGridViewRow dgr in dgvPhong.Rows)
+                {
+                    if (dgr.Index == e.RowIndex)
+                        dgr.Cells["chon"].Value = true;
+                    else dgr.Cells["chon"].Value = false;
+                }
             }
         }
 
@@ -70,8 +95,11 @@ namespace PhongTro
                 dgvPhong.Rows.Clear();
                 foreach (DTOPhong p in balP.SearchP_LP_CP(cboTimKiem.SelectedIndex, txtTim.Text.Trim()))
                 {
-                    string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
-                    dgvPhong.Rows.Add(tenloai, p.tenphong, p.maphong);
+                    if (p.maphong != maphongOld)
+                    {
+                        string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
+                        dgvPhong.Rows.Add( false , tenloai, p.tenphong, p.maphong);
+                    }
                 }
                 chbAll.Checked = false;
             }
@@ -84,8 +112,11 @@ namespace PhongTro
                 dgvPhong.Rows.Clear();
                 foreach (DTOPhong p in balP.SearchP_LP_CP(cboTimKiem.SelectedIndex, txtTim.Text.Trim()))
                 {
-                    string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
-                    dgvPhong.Rows.Add(tenloai, p.tenphong, p.maphong);
+                    if(p.maphong != maphongOld)
+                    {
+                        string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
+                        dgvPhong.Rows.Add( false , tenloai, p.tenphong, p.maphong);
+                    }
                 }
                 chbAll.Checked = false;
             }
@@ -98,8 +129,11 @@ namespace PhongTro
             dgvPhong.Rows.Clear();
             foreach (DTOPhong p in balP.GetAll())
             {
-                string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
-                dgvPhong.Rows.Add(tenloai, p.tenphong, p.maphong);
+                if (p.maphong != maphongOld)
+                {
+                    string tenloai = balLP.DetailLoaiPhong(p.maloaiphong).tenloaiphong;
+                    dgvPhong.Rows.Add( false , tenloai, p.tenphong, p.maphong);
+                }
             }
         }
         #endregion

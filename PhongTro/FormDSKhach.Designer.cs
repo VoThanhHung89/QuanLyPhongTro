@@ -87,6 +87,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvKhach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKhach.ColumnHeadersHeight = 40;
+            this.dgvKhach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvKhach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.chon,
             this.hinh,
@@ -103,7 +104,7 @@
             this.hinhanh});
             this.dgvKhach.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvKhach.EnableHeadersVisualStyles = false;
-            this.dgvKhach.Location = new System.Drawing.Point(0, 88);
+            this.dgvKhach.Location = new System.Drawing.Point(0, 56);
             this.dgvKhach.MultiSelect = false;
             this.dgvKhach.Name = "dgvKhach";
             this.dgvKhach.RowHeadersVisible = false;
@@ -116,7 +117,7 @@
             this.dgvKhach.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvKhach.RowTemplate.Height = 70;
             this.dgvKhach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKhach.Size = new System.Drawing.Size(1210, 644);
+            this.dgvKhach.Size = new System.Drawing.Size(1210, 676);
             this.dgvKhach.TabIndex = 27;
             this.dgvKhach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhach_CellContentClick);
             // 
@@ -305,12 +306,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.BackColor = System.Drawing.Color.Gold;
             this.groupBox1.Controls.Add(this.cboTim);
             this.groupBox1.Controls.Add(this.btnTim);
             this.groupBox1.Controls.Add(this.txtTim);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(4, 32);
+            this.groupBox1.Location = new System.Drawing.Point(229, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(516, 50);
             this.groupBox1.TabIndex = 43;
@@ -322,8 +323,8 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semilight", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.SeaShell;
-            this.label6.Location = new System.Drawing.Point(-1, -1);
+            this.label6.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label6.Location = new System.Drawing.Point(-1, 12);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(224, 30);
             this.label6.TabIndex = 44;
@@ -335,8 +336,8 @@
             this.rdbHienTatCa.Checked = true;
             this.rdbHienTatCa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbHienTatCa.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbHienTatCa.ForeColor = System.Drawing.Color.White;
-            this.rdbHienTatCa.Location = new System.Drawing.Point(527, 54);
+            this.rdbHienTatCa.ForeColor = System.Drawing.Color.DarkBlue;
+            this.rdbHienTatCa.Location = new System.Drawing.Point(751, 6);
             this.rdbHienTatCa.Name = "rdbHienTatCa";
             this.rdbHienTatCa.Size = new System.Drawing.Size(246, 23);
             this.rdbHienTatCa.TabIndex = 60;
@@ -350,8 +351,8 @@
             this.rdbHienTimKiem.AutoSize = true;
             this.rdbHienTimKiem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbHienTimKiem.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbHienTimKiem.ForeColor = System.Drawing.Color.White;
-            this.rdbHienTimKiem.Location = new System.Drawing.Point(775, 54);
+            this.rdbHienTimKiem.ForeColor = System.Drawing.Color.DarkBlue;
+            this.rdbHienTimKiem.Location = new System.Drawing.Point(751, 27);
             this.rdbHienTimKiem.Name = "rdbHienTimKiem";
             this.rdbHienTimKiem.Size = new System.Drawing.Size(147, 23);
             this.rdbHienTimKiem.TabIndex = 61;
@@ -360,27 +361,27 @@
             // 
             // btnDuyet
             // 
-            this.btnDuyet.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnDuyet.BackColor = System.Drawing.Color.Transparent;
             this.btnDuyet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDuyet.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnDuyet.FlatAppearance.BorderSize = 0;
             this.btnDuyet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDuyet.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDuyet.Image = ((System.Drawing.Image)(resources.GetObject("btnDuyet.Image")));
-            this.btnDuyet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDuyet.Location = new System.Drawing.Point(1091, 48);
+            this.btnDuyet.Location = new System.Drawing.Point(1109, 0);
             this.btnDuyet.Name = "btnDuyet";
-            this.btnDuyet.Size = new System.Drawing.Size(118, 30);
+            this.btnDuyet.Size = new System.Drawing.Size(50, 42);
             this.btnDuyet.TabIndex = 62;
-            this.btnDuyet.Text = "Duyệt";
             this.btnDuyet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDuyet.UseVisualStyleBackColor = false;
             this.btnDuyet.Click += new System.EventHandler(this.btnDuyet_Click);
             // 
             // btnThoat
             // 
-            this.btnThoat.BackColor = System.Drawing.Color.White;
+            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
             this.btnThoat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThoat.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnThoat.FlatAppearance.BorderSize = 0;
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
@@ -396,7 +397,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.BackColor = System.Drawing.Color.Gold;
             this.ClientSize = new System.Drawing.Size(1210, 732);
             this.ControlBox = false;
             this.Controls.Add(this.btnThoat);

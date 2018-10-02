@@ -52,7 +52,7 @@
             this.btnOk.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOk.Location = new System.Drawing.Point(30, 125);
+            this.btnOk.Location = new System.Drawing.Point(32, 125);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(110, 30);
             this.btnOk.TabIndex = 23;
@@ -70,7 +70,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.Location = new System.Drawing.Point(152, 125);
+            this.btnCancel.Location = new System.Drawing.Point(154, 125);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 30);
             this.btnCancel.TabIndex = 24;
@@ -103,17 +103,18 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semilight", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 57);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label2.Location = new System.Drawing.Point(27, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 25);
+            this.label2.Size = new System.Drawing.Size(228, 25);
             this.label2.TabIndex = 72;
-            this.label2.Text = "Ngày /  Tháng /  Năm";
+            this.label2.Text = "Ngày     Tháng          Năm";
             // 
             // nmrNgay
             // 
             this.nmrNgay.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmrNgay.Location = new System.Drawing.Point(31, 85);
+            this.nmrNgay.Location = new System.Drawing.Point(33, 85);
             this.nmrNgay.Maximum = new decimal(new int[] {
             31,
             0,
@@ -137,7 +138,7 @@
             // nmrThang
             // 
             this.nmrThang.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmrThang.Location = new System.Drawing.Point(98, 85);
+            this.nmrThang.Location = new System.Drawing.Point(100, 85);
             this.nmrThang.Maximum = new decimal(new int[] {
             12,
             0,
@@ -161,7 +162,7 @@
             // nmrNam
             // 
             this.nmrNam.Font = new System.Drawing.Font("Segoe UI Semilight", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nmrNam.Location = new System.Drawing.Point(164, 85);
+            this.nmrNam.Location = new System.Drawing.Point(166, 85);
             this.nmrNam.Maximum = new decimal(new int[] {
             2100,
             0,

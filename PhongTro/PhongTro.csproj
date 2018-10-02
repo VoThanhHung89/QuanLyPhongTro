@@ -64,11 +64,11 @@
     <Compile Include="FormChuPhong.Designer.cs">
       <DependentUpon>FormChuPhong.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormChuyenPhongChoHopDong.cs">
+    <Compile Include="FormChuyenPhong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChuyenPhongChoHopDong.Designer.cs">
-      <DependentUpon>FormChuyenPhongChoHopDong.cs</DependentUpon>
+    <Compile Include="FormChuyenPhong.Designer.cs">
+      <DependentUpon>FormChuyenPhong.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCuocPhi.cs">
       <SubType>Form</SubType>
@@ -177,8 +177,8 @@
     <EmbeddedResource Include="FormChuPhong.resx">
       <DependentUpon>FormChuPhong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormChuyenPhongChoHopDong.resx">
-      <DependentUpon>FormChuyenPhongChoHopDong.cs</DependentUpon>
+    <EmbeddedResource Include="FormChuyenPhong.resx">
+      <DependentUpon>FormChuyenPhong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCuocPhi.resx">
       <DependentUpon>FormCuocPhi.cs</DependentUpon>

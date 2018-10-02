@@ -54,7 +54,7 @@
             this.txtThongTin.Multiline = true;
             this.txtThongTin.Name = "txtThongTin";
             this.txtThongTin.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtThongTin.Size = new System.Drawing.Size(342, 117);
+            this.txtThongTin.Size = new System.Drawing.Size(373, 117);
             this.txtThongTin.TabIndex = 2;
             // 
             // label6
@@ -81,18 +81,17 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnLuu.BackColor = System.Drawing.Color.Transparent;
             this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLuu.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnLuu.FlatAppearance.BorderSize = 0;
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.Image")));
-            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLuu.Location = new System.Drawing.Point(333, 253);
+            this.btnLuu.Location = new System.Drawing.Point(382, 0);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(110, 30);
+            this.btnLuu.Size = new System.Drawing.Size(50, 42);
             this.btnLuu.TabIndex = 3;
-            this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -106,7 +105,7 @@
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnThoat.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(399, 0);
+            this.btnThoat.Location = new System.Drawing.Point(436, 0);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(50, 42);
             this.btnThoat.TabIndex = 4;
@@ -120,7 +119,7 @@
             this.txtTenCuocPhi.Location = new System.Drawing.Point(101, 76);
             this.txtTenCuocPhi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTenCuocPhi.Name = "txtTenCuocPhi";
-            this.txtTenCuocPhi.Size = new System.Drawing.Size(342, 25);
+            this.txtTenCuocPhi.Size = new System.Drawing.Size(373, 25);
             this.txtTenCuocPhi.TabIndex = 0;
             // 
             // label2
@@ -156,18 +155,17 @@
             // 
             // btnClear
             // 
-            this.btnClear.BackColor = System.Drawing.Color.DarkKhaki;
+            this.btnClear.BackColor = System.Drawing.Color.Transparent;
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.Location = new System.Drawing.Point(217, 253);
+            this.btnClear.Location = new System.Drawing.Point(333, 0);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(110, 30);
+            this.btnClear.Size = new System.Drawing.Size(50, 42);
             this.btnClear.TabIndex = 45;
-            this.btnClear.Text = "Làm lại";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Visible = false;
@@ -178,10 +176,12 @@
             this.panel1.BackColor = System.Drawing.Color.Orange;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.btnThoat);
+            this.panel1.Controls.Add(this.btnLuu);
+            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(449, 42);
+            this.panel1.Size = new System.Drawing.Size(486, 42);
             this.panel1.TabIndex = 46;
             // 
             // label3
@@ -202,7 +202,7 @@
             this.txtMaCuocPhi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMaCuocPhi.Name = "txtMaCuocPhi";
             this.txtMaCuocPhi.ReadOnly = true;
-            this.txtMaCuocPhi.Size = new System.Drawing.Size(342, 25);
+            this.txtMaCuocPhi.Size = new System.Drawing.Size(186, 25);
             this.txtMaCuocPhi.TabIndex = 47;
             // 
             // label1
@@ -221,17 +221,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(449, 286);
+            this.ClientSize = new System.Drawing.Size(486, 252);
             this.ControlBox = false;
             this.Controls.Add(this.txtMaCuocPhi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.nmrGiaCuoc);
             this.Controls.Add(this.txtThongTin);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtTenCuocPhi);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

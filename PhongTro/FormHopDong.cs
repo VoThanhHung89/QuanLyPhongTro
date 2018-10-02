@@ -316,7 +316,7 @@ namespace PhongTro
                 //Thêm Hợp đồng.
                 if (state == 0)
                 {
-                    if(balP.TinhTrangPhongKhiLamHopDong(Convert.ToInt32(cboPhong.SelectedValue), hd.ngaythue, hd.ngaytra) == false)
+                    if(balHD.KiemTraHopLeHopDong(hd, balHD.HopDongHienTaiVaTuongLai(Convert.ToInt32(cboPhong.SelectedValue)))  == false)
                     {
                         MessageBox.Show("Với Ngày Thuê như trên thì Phòng không trống.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPhong));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -36,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPhong));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,7 +45,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlLoaiPhong = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.dgvLoaiPhong = new System.Windows.Forms.DataGridView();
             this.maloaiphong_LP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.machuphong_LP = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +64,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlPhong = new System.Windows.Forms.Panel();
+            this.chbTatCaPhong = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cboLoaiPhong = new System.Windows.Forms.ComboBox();
             this.btnDienNuoc = new System.Windows.Forms.Button();
@@ -77,7 +77,7 @@
             this.tenphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangthai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tinhtrangphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thuephong = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.doiphong = new System.Windows.Forms.DataGridViewLinkColumn();
             this.chisothang = new System.Windows.Forms.DataGridViewLinkColumn();
             this.xem_P = new System.Windows.Forms.DataGridViewLinkColumn();
             this.sua_P = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -93,7 +93,6 @@
             this.pnlLoaiPhong.BackColor = System.Drawing.Color.White;
             this.pnlLoaiPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLoaiPhong.Controls.Add(this.label2);
-            this.pnlLoaiPhong.Controls.Add(this.button3);
             this.pnlLoaiPhong.Controls.Add(this.dgvLoaiPhong);
             this.pnlLoaiPhong.Controls.Add(this.cboTenChuPhong);
             this.pnlLoaiPhong.Controls.Add(this.cboTim_LP);
@@ -116,23 +115,6 @@
             this.label2.TabIndex = 46;
             this.label2.Text = "Chủ Phòng:";
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.DarkKhaki;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.Location = new System.Drawing.Point(999, 7);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 30);
-            this.button3.TabIndex = 45;
-            this.button3.Text = "Quản Lý Phòng";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
-            // 
             // dgvLoaiPhong
             // 
             this.dgvLoaiPhong.AllowUserToAddRows = false;
@@ -151,6 +133,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvLoaiPhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLoaiPhong.ColumnHeadersHeight = 40;
+            this.dgvLoaiPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLoaiPhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maloaiphong_LP,
             this.machuphong_LP,
@@ -394,6 +377,7 @@
             // 
             this.pnlPhong.BackColor = System.Drawing.Color.White;
             this.pnlPhong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlPhong.Controls.Add(this.chbTatCaPhong);
             this.pnlPhong.Controls.Add(this.label3);
             this.pnlPhong.Controls.Add(this.cboLoaiPhong);
             this.pnlPhong.Controls.Add(this.btnDienNuoc);
@@ -405,6 +389,19 @@
             this.pnlPhong.Name = "pnlPhong";
             this.pnlPhong.Size = new System.Drawing.Size(1263, 391);
             this.pnlPhong.TabIndex = 25;
+            // 
+            // chbTatCaPhong
+            // 
+            this.chbTatCaPhong.AutoSize = true;
+            this.chbTatCaPhong.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbTatCaPhong.ForeColor = System.Drawing.Color.DarkBlue;
+            this.chbTatCaPhong.Location = new System.Drawing.Point(563, 18);
+            this.chbTatCaPhong.Name = "chbTatCaPhong";
+            this.chbTatCaPhong.Size = new System.Drawing.Size(161, 23);
+            this.chbTatCaPhong.TabIndex = 48;
+            this.chbTatCaPhong.Text = "Hiện tất cả các Phòng";
+            this.chbTatCaPhong.UseVisualStyleBackColor = true;
+            this.chbTatCaPhong.CheckedChanged += new System.EventHandler(this.chbTatCaPhong_CheckedChanged);
             // 
             // label3
             // 
@@ -510,13 +507,14 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPhong.ColumnHeadersHeight = 40;
+            this.dgvPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvPhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maphong,
             this.maloaiphong_P,
             this.tenphong,
             this.trangthai,
             this.tinhtrangphong,
-            this.thuephong,
+            this.doiphong,
             this.chisothang,
             this.xem_P,
             this.sua_P,
@@ -581,21 +579,21 @@
             this.tinhtrangphong.Name = "tinhtrangphong";
             this.tinhtrangphong.ReadOnly = true;
             // 
-            // thuephong
+            // doiphong
             // 
-            this.thuephong.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.doiphong.ActiveLinkColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Blue;
-            this.thuephong.DefaultCellStyle = dataGridViewCellStyle9;
-            this.thuephong.HeaderText = "Thuê phòng";
-            this.thuephong.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.thuephong.LinkColor = System.Drawing.Color.Blue;
-            this.thuephong.Name = "thuephong";
-            this.thuephong.Text = "Quản lý";
-            this.thuephong.UseColumnTextForLinkValue = true;
-            this.thuephong.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.thuephong.Width = 80;
+            this.doiphong.DefaultCellStyle = dataGridViewCellStyle9;
+            this.doiphong.HeaderText = "Đổi phòng";
+            this.doiphong.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.doiphong.LinkColor = System.Drawing.Color.Blue;
+            this.doiphong.Name = "doiphong";
+            this.doiphong.Text = "Đổi phòng";
+            this.doiphong.UseColumnTextForLinkValue = true;
+            this.doiphong.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.doiphong.Width = 80;
             // 
             // chisothang
             // 
@@ -706,7 +704,6 @@
         private System.Windows.Forms.ComboBox cboTenChuPhong;
         private System.Windows.Forms.Button btnDienNuoc;
         private System.Windows.Forms.DataGridView dgvLoaiPhong;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ComboBox cboLoaiPhong;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -720,12 +717,13 @@
         private System.Windows.Forms.DataGridViewLinkColumn xem_LP;
         private System.Windows.Forms.DataGridViewLinkColumn sua_LP;
         private System.Windows.Forms.DataGridViewLinkColumn xoa_LP;
+        private System.Windows.Forms.CheckBox chbTatCaPhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn maphong;
         private System.Windows.Forms.DataGridViewTextBoxColumn maloaiphong_P;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenphong;
         private System.Windows.Forms.DataGridViewCheckBoxColumn trangthai;
         private System.Windows.Forms.DataGridViewTextBoxColumn tinhtrangphong;
-        private System.Windows.Forms.DataGridViewLinkColumn thuephong;
+        private System.Windows.Forms.DataGridViewLinkColumn doiphong;
         private System.Windows.Forms.DataGridViewLinkColumn chisothang;
         private System.Windows.Forms.DataGridViewLinkColumn xem_P;
         private System.Windows.Forms.DataGridViewLinkColumn sua_P;

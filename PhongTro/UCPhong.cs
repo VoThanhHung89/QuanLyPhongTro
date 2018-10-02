@@ -38,15 +38,15 @@ namespace PhongTro
             cboTenChuPhong.DisplayMember = "TenChuPhong";
             cboTenChuPhong.ValueMember = "MaChuPhong";
             cboTenChuPhong.DataSource = balCP.GetAll();
-            //Load cboLoaiPhong
-            cboLoaiPhong.DisplayMember = "TenLoaiPhong";
-            cboLoaiPhong.ValueMember = "MaLoaiPhong";
-            cboLoaiPhong.DataSource = balLP.GetAll();
             //Load Loại Phòng
             if (cboTenChuPhong.Items.Count > 0)
                 dgvLoaiPhong.DataSource = balLP.GetAllByMaChu(Convert.ToInt32(cboTenChuPhong.SelectedValue.ToString()));
 
             cboTim_LP.SelectedIndex = 0;
+            //Load cboLoaiPhong
+            cboLoaiPhong.DisplayMember = "TenLoaiPhong";
+            cboLoaiPhong.ValueMember = "MaLoaiPhong";
+            cboLoaiPhong.DataSource = balLP.GetAll();
             //Load Phòng
             if (dgvLoaiPhong.RowCount > 0)
                 dgvPhong.DataSource = balP.GetAllByMaLoai(Convert.ToInt32(dgvLoaiPhong.CurrentRow.Cells["maloaiphong_LP"].Value));
@@ -146,6 +146,7 @@ namespace PhongTro
         private void cboLoaiPhong_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvPhong.DataSource = balP.GetAllByMaLoai(Convert.ToInt32(cboLoaiPhong.SelectedValue.ToString()));
+            chbTatCaPhong.Checked = false;
         }
 
         private void txtTim_P_TextChanged(object sender, EventArgs e)
@@ -160,18 +161,11 @@ namespace PhongTro
 
         private void dgvPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvPhong.Columns[e.ColumnIndex].Name == "thuephong" && e.RowIndex > -1 && Convert.ToBoolean(dgvPhong.Rows[e.RowIndex].Cells["trangthai"].Value) == true)//Quản lý thuê phòng
+            if (dgvPhong.Columns[e.ColumnIndex].Name == "doiphong" && e.RowIndex > -1)//Quản lý thuê phòng
             {
-                //FormThuePhong.maphong = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
-                //FormThuePhong frm = new FormThuePhong();
-                //frm.ShowDialog();
-            }
-            else if (dgvPhong.Columns[e.ColumnIndex].Name == "thuephong" && e.RowIndex > -1 && Convert.ToBoolean(dgvPhong.Rows[e.RowIndex].Cells["trangthai"].Value) == false)//Quản lý thuê phòng
-            {
-                //MessageBox.Show("Hiện tại phòng chưa cho thuê!","Thông báo");
-                //FormThuePhong.maphong = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
-                //FormThuePhong frm = new FormThuePhong();
-                //frm.ShowDialog();
+                FormChuyenPhong.maphongOld= Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
+                FormChuyenPhong frm = new FormChuyenPhong();
+                frm.ShowDialog();
             }
             else if (dgvPhong.Columns[e.ColumnIndex].Name == "chisothang" && e.RowIndex > -1)//Số điện - nước
             {
@@ -218,5 +212,18 @@ namespace PhongTro
             frm.ShowDialog();
         }
         #endregion
+
+        private void chbTatCaPhong_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbTatCaPhong.Checked)
+            {
+                chbTatCaPhong.Checked = true;
+                dgvPhong.DataSource = balP.GetAll();
+            }
+            else
+            {
+                dgvPhong.DataSource = balP.GetAllByMaLoai(Convert.ToInt32(cboLoaiPhong.SelectedValue.ToString()));
+            }
+        }
     }
 }
