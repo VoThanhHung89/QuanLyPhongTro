@@ -34,9 +34,9 @@ namespace BAL
             }
             return liDtoCST;
         }
-        public List<DTOChiSoThang> ChiSoTheoMaPhongAllTime(int maphong)
+        public List<DTOChiSoThang> ChiSoTheoMaPhongAllTime(int MaPhong)
         {
-            return GetAll().Where(cs => cs.maphong == maphong).OrderByDescending(cs => cs.ngaycapnhat).ToList();
+            return GetAll().Where(cs => cs.maphong == MaPhong).OrderByDescending(cs => cs.ngaycapnhat).ToList();
         }
         public DataTable ChiSoTheoThoiGian(List<DTOPhong> liDtoPhong, DateTime time)
         {
@@ -90,25 +90,13 @@ namespace BAL
             }
             return dtoCST;
         }
-        public DTOChiSoThang ChiSoGanVoiNgayCanTim(int maphong, DateTime time)
+        public DTOChiSoThang ChiSoGanVoiNgayCanTim(int MaPhong, DateTime time)
         {
-            return GetAll().Where(c => c.maphong == maphong && c.ngaycapnhat.Date < time.Date).OrderByDescending(c => c.ngaycapnhat).FirstOrDefault();
+            return GetAll().Where(c => c.maphong == MaPhong && c.ngaycapnhat.Date < time.Date).OrderByDescending(c => c.ngaycapnhat).FirstOrDefault();
         }
-        public DTOChiSoThang ChiSoMoiNhat(int maphong)
+        public DTOChiSoThang ChiSoMoiNhat(int MaPhong)
         {
-            DTOChiSoThang dtoCST = new DTOChiSoThang();
-            using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
-            {
-                ChiSoThang cst = pt.ChiSoThangs.OrderByDescending(cp => cp.NgayCapNhat).Where(c => c.MaPhong == maphong).FirstOrDefault();
-                if(cst!= null)
-                {
-                    dtoCST.maphong = cst.MaPhong;
-                    dtoCST.ngaycapnhat = cst.NgayCapNhat;
-                    dtoCST.chisodien = cst.ChiSoDien;
-                    dtoCST.chisonuoc = cst.ChiSoNuoc;
-                }
-            }
-            return dtoCST;
+            return GetAll().OrderByDescending(cp => cp.ngaycapnhat).Where(c => c.maphong == MaPhong).FirstOrDefault();
         }
         /// <summary>
         /// True:Đã có - False:Chưa có
@@ -116,14 +104,11 @@ namespace BAL
         /// <param name="maphong"></param>
         /// <param name="time"></param>
         /// <returns></returns>
-        public bool CheckCST(int maphong, DateTime time)
+        public bool CheckCST(int MaPhong, DateTime time)
         {
-            using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
-            {
-                if (pt.ChiSoThangs.Where(cs => cs.MaPhong == maphong && cs.NgayCapNhat.Date == time.Date).Count() >= 1)
+                if (GetAll().Where(cs => cs.maphong == MaPhong && cs.ngaycapnhat.Date == time.Date).Count() >= 1)
                     return true;
                 else return false;
-            }
         }
         public void ThemChiSoThang(DTOChiSoThang dtoCST)
         {

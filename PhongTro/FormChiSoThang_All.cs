@@ -32,12 +32,12 @@ namespace PhongTro
             txtSoNuoc.DataBindings.Clear();
             txtSoNuoc.DataBindings.Add("Text", dgvPhong.DataSource, "chisonuoc");
 
-            txtTenLoaiPhong.DataBindings.Clear();
-            txtTenLoaiPhong.DataBindings.Add("Text", dgvPhong.DataSource,"tenloaiphong");
-            txtTenPhong.DataBindings.Clear();
-            txtTenPhong.DataBindings.Add("Text", dgvPhong.DataSource, "tenphong");
-            txtTenChuPhong.DataBindings.Clear();
-            txtTenChuPhong.DataBindings.Add("Text", dgvPhong.DataSource, "tenchuphong");
+            lblTenLoai.DataBindings.Clear();
+            lblTenLoai.DataBindings.Add("Text", dgvPhong.DataSource,"tenloaiphong");
+            lblTenPhong.DataBindings.Clear();
+            lblTenPhong.DataBindings.Add("Text", dgvPhong.DataSource, "tenphong");
+            lblTenChu.DataBindings.Clear();
+            lblTenChu.DataBindings.Add("Text", dgvPhong.DataSource, "tenchuphong");
         }
 
         private void FormDien_Nuoc_Load(object sender, EventArgs e)
@@ -65,23 +65,7 @@ namespace PhongTro
                 txtSoNuoc.Text = dgvPhong.Rows[dr - 1].Cells["chisonuoc"].Value.ToString();
             } 
             else if (dr == 0) MessageBox.Show("Hết phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-            if (dgvPhong.SelectedRows.Count != 0)
-            {
-                int maphong = Convert.ToInt32(dgvPhong.CurrentRow.Cells["maphong"].Value);
-                DTOChiSoThang cstGanNgayNay = balCST.ChiSoGanVoiNgayCanTim(maphong, dtpNgayCapNhat.Value);
-                if (cstGanNgayNay != null)
-                {
-                    dtpNgayGanNhat.Value = cstGanNgayNay.ngaycapnhat;
-                    txtSoDienGanNhat.Text = cstGanNgayNay.chisodien.ToString();
-                    txtSoNuocGanNhat.Text = cstGanNgayNay.chisonuoc.ToString();
-                }
-                else
-                {
-                    txtSoDienGanNhat.Text = txtSoNuocGanNhat.Text = String.Empty;
-                }
-            }
+            
         }
 
         private void btnXuong_Click(object sender, EventArgs e)
@@ -103,21 +87,6 @@ namespace PhongTro
             }
             else MessageBox.Show("Hết phòng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
-            if (dgvPhong.SelectedRows.Count != 0)
-            {
-                int maphong = Convert.ToInt32(dgvPhong.CurrentRow.Cells["maphong"].Value);
-                DTOChiSoThang cstGanNgayNay = balCST.ChiSoGanVoiNgayCanTim(maphong, dtpNgayCapNhat.Value);
-                if (cstGanNgayNay != null)
-                {
-                    dtpNgayGanNhat.Value = cstGanNgayNay.ngaycapnhat;
-                    txtSoDienGanNhat.Text = cstGanNgayNay.chisodien.ToString();
-                    txtSoNuocGanNhat.Text = cstGanNgayNay.chisonuoc.ToString();
-                }
-                else
-                {
-                    txtSoDienGanNhat.Text = txtSoNuocGanNhat.Text = String.Empty;
-                }
-            }
         }
 
         private void btnLamLai_Click(object sender, EventArgs e)
@@ -244,5 +213,24 @@ namespace PhongTro
             }
         }
         #endregion
+
+        private void dgvPhong_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvPhong.SelectedRows.Count != 0)
+            {
+                int maphong = Convert.ToInt32(dgvPhong.CurrentRow.Cells["maphong"].Value);
+                DTOChiSoThang cstGanNgayNay = balCST.ChiSoGanVoiNgayCanTim(maphong, dtpNgayCapNhat.Value);
+                if (cstGanNgayNay != null)
+                {
+                    dtpNgayGanNhat.Value = cstGanNgayNay.ngaycapnhat;
+                    txtSoDienGanNhat.Text = cstGanNgayNay.chisodien.ToString();
+                    txtSoNuocGanNhat.Text = cstGanNgayNay.chisonuoc.ToString();
+                }
+                else
+                {
+                    txtSoDienGanNhat.Text = txtSoNuocGanNhat.Text = String.Empty;
+                }
+            }
+        }
     }
 }

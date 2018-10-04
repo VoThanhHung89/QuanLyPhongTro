@@ -28,33 +28,33 @@ namespace BAL
                 return liDtoTP;
             }
         }
-        public List<DTOThuePhong> ThuePhongTuMaPhong(int maphong)
+        public List<DTOThuePhong> ThuePhongTuMaPhong(int MaPhong)
         {
-            return GetAll().Where(t => t.maphong == maphong).ToList();
+            return GetAll().Where(t => t.maphong == MaPhong).ToList();
         }
-        public List<DTOThuePhong> ThuePhongTuMaHopDong(Int64 mahopdong)
+        public List<DTOThuePhong> ThuePhongTuMaHopDong(Int64 MaHopDong)
         {
-            return GetAll().Where(t => t.mahopdong == mahopdong).ToList();
+            return GetAll().Where(t => t.mahopdong == MaHopDong).ToList();
         }
-        public List<DTOThuePhong> ThuePhongTuMaKhach(Int64 makhach)
+        public List<DTOThuePhong> ThuePhongTuMaKhach(Int64 MaKhach)
         {
-            return GetAll().Where(t => t.makhach == makhach).ToList();
+            return GetAll().Where(t => t.makhach == MaKhach).ToList();
         }
-        public List<Int64> DanhSachMaHopDongTheoMaPhong(int maphong)
+        public List<Int64> DanhSachMaHopDongTheoMaPhong(int MaPhong)
         {
-            return GetAll().Where(t => t.maphong == maphong).Select(t => t.mahopdong).Distinct().ToList();
+            return GetAll().Where(t => t.maphong == MaPhong).Select(t => t.mahopdong).Distinct().ToList();
         }
-        public List<Int64> DanhSachMaKhachTheoMaHopDong(Int64 mahopdong)
+        public List<Int64> DanhSachMaKhachTheoMaHopDong(Int64 MaHopDong)
         {
-            return GetAll().Where(t => t.mahopdong == mahopdong).Select(t => t.makhach).ToList();
+            return GetAll().Where(t => t.mahopdong == MaHopDong).Select(t => t.makhach).ToList();
         }
-        public Int64 MaChuPhong(int maphong, Int64 mahopdong)
+        public Int64 MaChuPhong(int MaPhong, Int64 MaHopDong)
         {
-            return GetAll().Where(t => t.mahopdong == mahopdong && t.maphong == maphong && t.chuphong == true).Select(t => t.makhach).FirstOrDefault();
+            return GetAll().Where(t => t.mahopdong == MaHopDong && t.maphong == MaPhong && t.chuphong == true).Select(t => t.makhach).FirstOrDefault();
         }
-        public int MaPhongTuMaHopDong(Int64 mahopdong)
+        public int MaPhongTuMaHopDong(Int64 MaHopDong)
         {
-            return GetAll().Where(t => t.mahopdong == mahopdong).Select(t => t.maphong).Distinct().First();
+            return GetAll().Where(t => t.mahopdong == MaHopDong).Select(t => t.maphong).Distinct().First();
         }
         public void ThemThuePhong(DTOThuePhong dtoTP)
         {

@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiSoThang_Detail));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTenPhong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTenLoaiPhong = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtTenChuPhong = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLamLai = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTenPhong = new System.Windows.Forms.Label();
+            this.lblTenLoai = new System.Windows.Forms.Label();
+            this.lblTenChu = new System.Windows.Forms.Label();
             this.txtSoNuoc = new System.Windows.Forms.TextBox();
             this.txtSoDien = new System.Windows.Forms.TextBox();
             this.dtpNgayCapNhat = new System.Windows.Forms.DateTimePicker();
@@ -88,14 +88,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Số điện:";
             // 
-            // txtTenPhong
-            // 
-            this.txtTenPhong.Location = new System.Drawing.Point(119, 87);
-            this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.ReadOnly = true;
-            this.txtTenPhong.Size = new System.Drawing.Size(246, 25);
-            this.txtTenPhong.TabIndex = 5;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -107,14 +99,6 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Tên phòng:";
             // 
-            // txtTenLoaiPhong
-            // 
-            this.txtTenLoaiPhong.Location = new System.Drawing.Point(119, 56);
-            this.txtTenLoaiPhong.Name = "txtTenLoaiPhong";
-            this.txtTenLoaiPhong.ReadOnly = true;
-            this.txtTenLoaiPhong.Size = new System.Drawing.Size(246, 25);
-            this.txtTenLoaiPhong.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -125,14 +109,6 @@
             this.label2.Size = new System.Drawing.Size(105, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Tên loại phòng:";
-            // 
-            // txtTenChuPhong
-            // 
-            this.txtTenChuPhong.Location = new System.Drawing.Point(119, 25);
-            this.txtTenChuPhong.Name = "txtTenChuPhong";
-            this.txtTenChuPhong.ReadOnly = true;
-            this.txtTenChuPhong.Size = new System.Drawing.Size(246, 25);
-            this.txtTenChuPhong.TabIndex = 1;
             // 
             // label1
             // 
@@ -210,17 +186,17 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.lblTenPhong);
+            this.groupBox1.Controls.Add(this.lblTenLoai);
+            this.groupBox1.Controls.Add(this.lblTenChu);
             this.groupBox1.Controls.Add(this.txtSoNuoc);
             this.groupBox1.Controls.Add(this.txtSoDien);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtTenPhong);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtTenLoaiPhong);
             this.groupBox1.Controls.Add(this.dtpNgayCapNhat);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtTenChuPhong);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(382, 84);
             this.groupBox1.Name = "groupBox1";
@@ -229,9 +205,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Phòng";
             // 
+            // lblTenPhong
+            // 
+            this.lblTenPhong.AutoSize = true;
+            this.lblTenPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenPhong.ForeColor = System.Drawing.Color.Black;
+            this.lblTenPhong.Location = new System.Drawing.Point(122, 90);
+            this.lblTenPhong.Name = "lblTenPhong";
+            this.lblTenPhong.Size = new System.Drawing.Size(81, 19);
+            this.lblTenPhong.TabIndex = 75;
+            this.lblTenPhong.Text = "(TenPhong)";
+            // 
+            // lblTenLoai
+            // 
+            this.lblTenLoai.AutoSize = true;
+            this.lblTenLoai.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenLoai.ForeColor = System.Drawing.Color.Black;
+            this.lblTenLoai.Location = new System.Drawing.Point(122, 59);
+            this.lblTenLoai.Name = "lblTenLoai";
+            this.lblTenLoai.Size = new System.Drawing.Size(67, 19);
+            this.lblTenLoai.TabIndex = 74;
+            this.lblTenLoai.Text = "(TenLoai)";
+            // 
+            // lblTenChu
+            // 
+            this.lblTenChu.AutoSize = true;
+            this.lblTenChu.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenChu.ForeColor = System.Drawing.Color.Black;
+            this.lblTenChu.Location = new System.Drawing.Point(122, 28);
+            this.lblTenChu.Name = "lblTenChu";
+            this.lblTenChu.Size = new System.Drawing.Size(66, 19);
+            this.lblTenChu.TabIndex = 73;
+            this.lblTenChu.Text = "(TenChu)";
+            // 
             // txtSoNuoc
             // 
-            this.txtSoNuoc.Location = new System.Drawing.Point(119, 206);
+            this.txtSoNuoc.Location = new System.Drawing.Point(132, 206);
             this.txtSoNuoc.Name = "txtSoNuoc";
             this.txtSoNuoc.Size = new System.Drawing.Size(130, 25);
             this.txtSoNuoc.TabIndex = 72;
@@ -240,7 +249,7 @@
             // 
             // txtSoDien
             // 
-            this.txtSoDien.Location = new System.Drawing.Point(119, 175);
+            this.txtSoDien.Location = new System.Drawing.Point(132, 175);
             this.txtSoDien.Name = "txtSoDien";
             this.txtSoDien.Size = new System.Drawing.Size(130, 25);
             this.txtSoDien.TabIndex = 71;
@@ -251,7 +260,7 @@
             // 
             this.dtpNgayCapNhat.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgayCapNhat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayCapNhat.Location = new System.Drawing.Point(119, 143);
+            this.dtpNgayCapNhat.Location = new System.Drawing.Point(132, 143);
             this.dtpNgayCapNhat.Name = "dtpNgayCapNhat";
             this.dtpNgayCapNhat.Size = new System.Drawing.Size(130, 27);
             this.dtpNgayCapNhat.TabIndex = 70;
@@ -331,14 +340,14 @@
             this.dgvPhong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvPhong.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPhong.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semilight", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPhong.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPhong.ColumnHeadersHeight = 40;
             this.dgvPhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -351,8 +360,8 @@
             this.dgvPhong.Name = "dgvPhong";
             this.dgvPhong.ReadOnly = true;
             this.dgvPhong.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.dgvPhong.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.dgvPhong.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPhong.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI Semilight", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvPhong.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvPhong.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Silver;
@@ -374,10 +383,10 @@
             // 
             this.ngaycapnhat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ngaycapnhat.DataPropertyName = "ngaycapnhat";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "d";
-            dataGridViewCellStyle7.NullValue = null;
-            this.ngaycapnhat.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.ngaycapnhat.DefaultCellStyle = dataGridViewCellStyle2;
             this.ngaycapnhat.HeaderText = "Ngày cập nhật";
             this.ngaycapnhat.Name = "ngaycapnhat";
             this.ngaycapnhat.ReadOnly = true;
@@ -385,10 +394,10 @@
             // chisodien
             // 
             this.chisodien.DataPropertyName = "chisodien";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "N0";
-            dataGridViewCellStyle8.NullValue = null;
-            this.chisodien.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "N0";
+            dataGridViewCellStyle3.NullValue = null;
+            this.chisodien.DefaultCellStyle = dataGridViewCellStyle3;
             this.chisodien.HeaderText = "Số điện";
             this.chisodien.Name = "chisodien";
             this.chisodien.ReadOnly = true;
@@ -396,10 +405,10 @@
             // chisonuoc
             // 
             this.chisonuoc.DataPropertyName = "chisonuoc";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "N0";
-            dataGridViewCellStyle9.NullValue = null;
-            this.chisonuoc.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.chisonuoc.DefaultCellStyle = dataGridViewCellStyle4;
             this.chisonuoc.HeaderText = "Số nước";
             this.chisonuoc.Name = "chisonuoc";
             this.chisonuoc.ReadOnly = true;
@@ -464,11 +473,8 @@
         #endregion
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTenPhong;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTenLoaiPhong;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtTenChuPhong;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLamLai;
         private System.Windows.Forms.Button btnThoat;
@@ -489,5 +495,8 @@
         private System.Windows.Forms.TextBox txtSoDien;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblTenPhong;
+        private System.Windows.Forms.Label lblTenLoai;
+        private System.Windows.Forms.Label lblTenChu;
     }
 }

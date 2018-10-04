@@ -18,12 +18,6 @@ namespace PhongTro
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// -1:Sửa 0:Thêm 1:Xem
-        /// </summary>
-        public static int state = 0;
-        public static Int64 mahopdong = -1;
-        public static int maphong = -1;
         BAL_LoaiPhong balLP = new BAL_LoaiPhong();
         BAL_Phong balP = new BAL_Phong();
         BAL_ChiSoThang balCST = new BAL_ChiSoThang();
@@ -32,9 +26,18 @@ namespace PhongTro
         BAL_HopDong balHD = new BAL_HopDong();
         BAL_ChiuCuocPhi balCCP = new BAL_ChiuCuocPhi();
         BAL_ThuePhong balTP = new BAL_ThuePhong();
-        
+        /// <summary>
+        /// -1:Sửa 0:Thêm 1:Xem
+        /// </summary>
+        public static int state = 0;
+        public static Int64 mahopdong;
+        public static int maphong;
+
         private void LoadThongTin()
         {
+            dgvKhach.Rows.Clear();
+            dgvCuocPhi.Rows.Clear();
+
             //Thêm
             if (state == 0)
             {
@@ -288,7 +291,7 @@ namespace PhongTro
             else if (dgvCuocPhi.Columns[e.ColumnIndex].Name == "xem_Cuoc" && e.RowIndex > -1)
             {
                 FormCuocPhi.state = 1;
-                FormCuocPhi.macuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
+                FormCuocPhi.MaCuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
                 FormCuocPhi frm = new FormCuocPhi();
                 frm.ShowDialog();
             }

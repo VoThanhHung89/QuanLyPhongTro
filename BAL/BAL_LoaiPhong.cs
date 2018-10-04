@@ -30,30 +30,30 @@ namespace BAL
                 return liLP;
             }
         }
-        public List<DTOLoaiPhong> GetAllByMaChu(int machu)
+        public List<DTOLoaiPhong> GetAllByMaChu(int MaChu)
         {
-            return GetAll().Where(l => l.machuphong == machu).ToList();
+            return GetAll().Where(l => l.machuphong == MaChu).ToList();
         }
-        public DTOLoaiPhong DetailLoaiPhong(int maloai)
+        public DTOLoaiPhong DetailLoaiPhong(int MaLoai)
         {
-            return GetAll().Where(l => l.maloaiphong == maloai).FirstOrDefault();
+            return GetAll().Where(l => l.maloaiphong == MaLoai).FirstOrDefault();
         }
-        public List<DTOLoaiPhong> Search(int machu, int searchby, string timkiem)
+        public List<DTOLoaiPhong> Search(int MaChu, int Searchby, string TuTim)
         {
             List<DTOLoaiPhong> liDtoLP = new List<DTOLoaiPhong>();
-            switch (searchby)
+            switch (Searchby)
             {
                 case 0:
-                    liDtoLP = GetAll().Where(lp => lp.machuphong == Convert.ToInt32(machu) && lp.tenloaiphong.Contains(timkiem)).ToList();
+                    liDtoLP = GetAll().Where(lp => lp.machuphong == MaChu && lp.tenloaiphong.Contains(TuTim)).ToList();
                     break;
                 case 1:
-                    liDtoLP = GetAll().Where(lp => lp.machuphong == Convert.ToInt32(machu) && lp.giathue == Convert.ToInt32(timkiem)).ToList();
+                    liDtoLP = GetAll().Where(lp => lp.machuphong == MaChu && lp.giathue == Convert.ToInt32(TuTim)).ToList();
                     break;
                 case 2:
-                    liDtoLP = GetAll().Where(lp => lp.machuphong == Convert.ToInt32(machu) && lp.thongtin.Contains(timkiem)).ToList();
+                    liDtoLP = GetAll().Where(lp => lp.machuphong == MaChu && lp.thongtin.Contains(TuTim)).ToList();
                     break;
                 default:
-                    liDtoLP = GetAll().Where(lp => lp.machuphong == Convert.ToInt32(machu) && lp.diachi.Contains(timkiem)).ToList();
+                    liDtoLP = GetAll().Where(lp => lp.machuphong == MaChu && lp.diachi.Contains(TuTim)).ToList();
                     break;
             }
             return liDtoLP;
@@ -74,11 +74,11 @@ namespace BAL
                 pt.SubmitChanges();
             }
         }
-        public void XoaLoaiPhong(int maloai)
+        public void XoaLoaiPhong(int MaLoai)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                pt.LoaiPhong_Xoa(maloai);
+                pt.LoaiPhong_Xoa(MaLoai);
                 pt.SubmitChanges();
             }
         }

@@ -34,9 +34,9 @@ namespace BAL
                 return liDtoHD;
             }
         }
-        public DTOHopDong DetailHopDong(Int64 mahopdong)
+        public DTOHopDong DetailHopDong(Int64 MaHopDong)
         {
-            return GetAll().Where(h => h.mahopdong == mahopdong).FirstOrDefault();
+            return GetAll().Where(h => h.mahopdong == MaHopDong).FirstOrDefault();
         }
         public Int64 MaHopDongSearchByAll(DTOHopDong dtoHD)
         {
@@ -130,49 +130,49 @@ namespace BAL
         /// </summary>
         /// <param name="mahopdong"></param>
         /// <returns></returns>
-        public int GiaTriHopDongVoiNgayHienTai(Int64 mahopdong)
+        public int GiaTriHopDongVoiNgayHienTai(Int64 MaHopDong)
         {
-            int giatri = -1;
-            DTOHopDong dtoHD = GetAll().Where(h => h.mahopdong == mahopdong).SingleOrDefault();
-            if (dtoHD.ngaythue.Date >= DateTime.Now.Date) giatri = 1;
+            int GiaTri = -1;
+            DTOHopDong dtoHD = GetAll().Where(h => h.mahopdong == MaHopDong).SingleOrDefault();
+            if (dtoHD.ngaythue.Date > DateTime.Now.Date) GiaTri = 1;
             else
             {
-                if (dtoHD.ngaytra == null || Convert.ToDateTime(dtoHD.ngaytra).Date > DateTime.Now.Date) giatri = 0;
-                else if (Convert.ToDateTime(dtoHD.ngaytra).Date < DateTime.Now.Date) giatri = -1;
+                if (dtoHD.ngaytra == null || Convert.ToDateTime(dtoHD.ngaytra).Date >= DateTime.Now.Date) GiaTri = 0;
+                else if (Convert.ToDateTime(dtoHD.ngaytra).Date < DateTime.Now.Date) GiaTri = -1;
             }
-            return giatri;
+            return GiaTri;
         }
-        public DTOHopDong HopDongHienTai(int maphong)
+        public DTOHopDong HopDongHienTai(int MaPhong)
         {
             BAL_ThuePhong balTP = new BAL_ThuePhong();
 
             DTOHopDong dtoHDHT = new DTOHopDong();
-            foreach (Int64 mahopdong in balTP.DanhSachMaHopDongTheoMaPhong(maphong))
+            foreach (Int64 MaHopDong in balTP.DanhSachMaHopDongTheoMaPhong(MaPhong))
             {
-                DTOHopDong dtoHD = DetailHopDong(mahopdong);
+                DTOHopDong dtoHD = DetailHopDong(MaHopDong);
                 if (dtoHD.status == true) dtoHDHT = dtoHD;
             }
             return dtoHDHT;
         }
-        public List<DTOHopDong> HopDongTrongTuongLai(int maphong)
+        public List<DTOHopDong> HopDongTrongTuongLai(int MaPhong)
         {
             BAL_ThuePhong balTP = new BAL_ThuePhong();
 
             List<DTOHopDong> liDtoHDTL = new List<DTOHopDong>();
-            foreach (Int64 mahopdong in balTP.DanhSachMaHopDongTheoMaPhong(maphong))
+            foreach (Int64 MaHopDong in balTP.DanhSachMaHopDongTheoMaPhong(MaPhong))
             {
-                DTOHopDong dtoHD = DetailHopDong(mahopdong);
+                DTOHopDong dtoHD = DetailHopDong(MaHopDong);
                 if (dtoHD.ngaythue.Date > DateTime.Now.Date) liDtoHDTL.Add(dtoHD);
             }
             return liDtoHDTL;
         }
-        public List<DTOHopDong> HopDongHienTaiVaTuongLai(int maphong)
+        public List<DTOHopDong> HopDongHienTaiVaTuongLai(int MaPhong)
         {
             List<DTOHopDong> liDtoHD = new List<DTOHopDong>();
-            liDtoHD = HopDongTrongTuongLai(maphong);
-            if (HopDongHienTai(maphong).mahopdong != 0)
+            liDtoHD = HopDongTrongTuongLai(MaPhong);
+            if (HopDongHienTai(MaPhong) != null)
             {
-                liDtoHD.Add(HopDongHienTai(maphong));
+                liDtoHD.Add(HopDongHienTai(MaPhong));
             }
             return liDtoHD;
         }

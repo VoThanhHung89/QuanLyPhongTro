@@ -49,7 +49,7 @@ namespace PhongTro
             if(dgvCuocPhi.Columns[e.ColumnIndex].Name == "xem" && e.RowIndex > -1)
             {
                 FormCuocPhi.state = 1;
-                FormCuocPhi.macuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
+                FormCuocPhi.MaCuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
                 FormCuocPhi frm = new FormCuocPhi();
                 frm.ShowDialog();
             }

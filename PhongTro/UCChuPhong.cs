@@ -47,49 +47,13 @@ namespace PhongTro
             LoadData();
         }
 
-        #region Panel Chủ Phòng
+        #region Chủ Phòng
         private void btnThem_CP_Click(object sender, EventArgs e)
         {
             FormChuPhong.state = 0;
             FormChuPhong frm = new FormChuPhong();
             frm.ShowDialog();
             dgvChuPhong.DataSource = balCP.GetAll();
-        }
-
-        private void dgvChuPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if(dgvChuPhong.Columns[e.ColumnIndex].Name == "xem_CP" && e.RowIndex > -1)//Xem
-            {
-                FormChuPhong.state = 1;
-                FormChuPhong.machuphong = Convert.ToInt32(dgvChuPhong.Rows[e.RowIndex].Cells["machuphong_CP"].Value);
-                FormChuPhong frm = new FormChuPhong();
-                frm.ShowDialog();
-                dgvChuPhong.DataSource = balCP.GetAll();
-            }
-            else if(dgvChuPhong.Columns[e.ColumnIndex].Name == "sua_CP" && e.RowIndex > -1)//Sửa
-            {
-                FormChuPhong.state = -1;
-                FormChuPhong.machuphong = Convert.ToInt32(dgvChuPhong.Rows[e.RowIndex].Cells["machuphong_CP"].Value);
-                FormChuPhong frm = new FormChuPhong();
-                frm.ShowDialog();
-                dgvChuPhong.DataSource = balCP.GetAll();
-            }
-            else if(dgvChuPhong.Columns[e.ColumnIndex].Name == "xoa_CP" && e.RowIndex > -1)//Xóa
-            {
-                if (DialogResult.Yes == MessageBox.Show("Bạn muốn xóa dữ liệu trên?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    try
-                    {
-                        balCP.XoaChuphong(Convert.ToInt32(dgvChuPhong.Rows[e.RowIndex].Cells["machuphong_CP"].Value));
-                        MessageBox.Show("Xóa dữ liệu thành công.", "Thông báo");
-                        dgvChuPhong.DataSource = balCP.GetAll();
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show("Xóa dữ liệu thất bại.\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
         }
 
         private void txtTim_CP_TextChanged(object sender, EventArgs e)
@@ -100,6 +64,42 @@ namespace PhongTro
         private void btnTim_CP_Click(object sender, EventArgs e)
         {
             dgvChuPhong.DataSource = balCP.Search(cboTim_CP.SelectedIndex, txtTim_CP.Text);
+        }
+
+        private void dgvChuPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvChuPhong.Columns[e.ColumnIndex].Name == "xem_CP" && e.RowIndex > -1)//Xem
+            {
+                FormChuPhong.state = 1;
+                FormChuPhong.MaChuPhong = Convert.ToInt32(dgvChuPhong.Rows[e.RowIndex].Cells["machuphong_CP"].Value);
+                FormChuPhong frm = new FormChuPhong();
+                frm.ShowDialog();
+                dgvChuPhong.DataSource = balCP.GetAll();
+            }
+            else if (dgvChuPhong.Columns[e.ColumnIndex].Name == "sua_CP" && e.RowIndex > -1)//Sửa
+            {
+                FormChuPhong.state = -1;
+                FormChuPhong.MaChuPhong = Convert.ToInt32(dgvChuPhong.Rows[e.RowIndex].Cells["machuphong_CP"].Value);
+                FormChuPhong frm = new FormChuPhong();
+                frm.ShowDialog();
+                dgvChuPhong.DataSource = balCP.GetAll();
+            }
+            else if (dgvChuPhong.Columns[e.ColumnIndex].Name == "xoa_CP" && e.RowIndex > -1)//Xóa
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn muốn xóa dữ liệu trên?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    try
+                    {
+                        balCP.XoaChuphong(Convert.ToInt32(dgvChuPhong.Rows[e.RowIndex].Cells["machuphong_CP"].Value));
+                        MessageBox.Show("Xóa dữ liệu thành công.", "Thông báo");
+                        dgvChuPhong.DataSource = balCP.GetAll();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Xóa dữ liệu thất bại.\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
         #endregion
 
@@ -112,13 +112,23 @@ namespace PhongTro
             frm.ShowDialog();
             dgvNguoiDung.DataSource = balND.GetAll();
         }
-        
+
+        private void txtTim_ND_TextChanged(object sender, EventArgs e)
+        {
+            dgvNguoiDung.DataSource = balND.Search(txtTim_ND.Text);
+        }
+
+        private void btnTim_ND_Click(object sender, EventArgs e)
+        {
+            dgvNguoiDung.DataSource = balND.Search(txtTim_ND.Text);
+        }
+
         private void dgvNguoiDung_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvNguoiDung.Columns[e.ColumnIndex].Name == "xem_ND" && e.RowIndex > -1)//Xem
             {
                 FormNguoiDung.state = 1;
-                FormNguoiDung.manguoidung = Convert.ToInt32(dgvNguoiDung.Rows[e.RowIndex].Cells["manguoidung"].Value);
+                FormNguoiDung.MaNguoiDung = Convert.ToInt32(dgvNguoiDung.Rows[e.RowIndex].Cells["manguoidung"].Value);
                 FormNguoiDung frm = new FormNguoiDung();
                 frm.ShowDialog();
                 dgvNguoiDung.DataSource = balND.GetAll();
@@ -126,7 +136,7 @@ namespace PhongTro
             else if (dgvNguoiDung.Columns[e.ColumnIndex].Name == "sua_ND" && e.RowIndex > -1)//Sửa
             {
                 FormNguoiDung.state = -1;
-                FormNguoiDung.manguoidung = Convert.ToInt32(dgvNguoiDung.Rows[e.RowIndex].Cells["manguoidung"].Value);
+                FormNguoiDung.MaNguoiDung = Convert.ToInt32(dgvNguoiDung.Rows[e.RowIndex].Cells["manguoidung"].Value);
                 FormNguoiDung frm = new FormNguoiDung();
                 frm.ShowDialog();
                 dgvNguoiDung.DataSource = balND.GetAll();
@@ -145,16 +155,6 @@ namespace PhongTro
                     { MessageBox.Show("Xóa dữ liệu thất bại.\n" + ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                 }
             }
-        }
-
-        private void txtTim_ND_TextChanged(object sender, EventArgs e)
-        {
-            dgvNguoiDung.DataSource = balND.Search(txtTim_ND.Text);
-        }
-
-        private void btnTim_ND_Click(object sender, EventArgs e)
-        {
-            dgvNguoiDung.DataSource = balND.Search(txtTim_ND.Text);
         }
         #endregion
 
@@ -183,7 +183,7 @@ namespace PhongTro
             if (dgvCuocPhi.Columns[e.ColumnIndex].Name == "xem_Cuoc" && e.RowIndex > -1)//Xem
             {
                 FormCuocPhi.state = 1;
-                FormCuocPhi.macuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
+                FormCuocPhi.MaCuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
                 FormCuocPhi frm = new FormCuocPhi();
                 frm.ShowDialog();
                 dgvCuocPhi.DataSource = balCuoc.GetAll();
@@ -191,7 +191,7 @@ namespace PhongTro
             else if (dgvCuocPhi.Columns[e.ColumnIndex].Name == "sua_Cuoc" && e.RowIndex > -1)//Sửa
             {
                 FormCuocPhi.state = -1;
-                FormCuocPhi.macuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
+                FormCuocPhi.MaCuoc = Convert.ToInt32(dgvCuocPhi.Rows[e.RowIndex].Cells["macuocphi"].Value);
                 FormCuocPhi frm = new FormCuocPhi();
                 frm.ShowDialog();
                 dgvCuocPhi.DataSource = balCuoc.GetAll();

@@ -22,8 +22,8 @@ namespace PhongTro
         /// -1:Sửa 0:Thêm 1:Xem
         /// </summary>
         public static int state = 0;
-        public static int maloai = -1;
-        public static int machu = -1;
+        public static int MaLoai = -1;
+        public static int MaChu = -1;
         BAL_LoaiPhong balLP = new BAL_LoaiPhong();
         BAL_ChuPhong balCP = new BAL_ChuPhong();
 
@@ -46,7 +46,7 @@ namespace PhongTro
             }
             else
             {
-                DTOLoaiPhong lp = balLP.DetailLoaiPhong(maloai);
+                DTOLoaiPhong lp = balLP.DetailLoaiPhong(MaLoai);
                 txtMaLoaiPhong.Text = lp.maloaiphong.ToString();
                 txtTenLoai.Text = lp.tenloaiphong;
                 nmrGiaThue.Value = lp.giathue;
@@ -118,7 +118,7 @@ namespace PhongTro
                 //Sửa
                 else
                 {
-                    lp.maloaiphong = Convert.ToInt32(txtMaLoaiPhong.Text);
+                    lp.maloaiphong = MaLoai;
                     try
                     {
                         balLP.SuaLoaiPhong(lp);

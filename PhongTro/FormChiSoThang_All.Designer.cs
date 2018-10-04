@@ -51,9 +51,6 @@
             this.btnLamLai = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtTenChuPhong = new System.Windows.Forms.TextBox();
-            this.txtTenPhong = new System.Windows.Forms.TextBox();
-            this.txtTenLoaiPhong = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,6 +74,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.lblTenPhong = new System.Windows.Forms.Label();
+            this.lblTenLoai = new System.Windows.Forms.Label();
+            this.lblTenChu = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhong)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -128,6 +128,7 @@
             this.dgvPhong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPhong.Size = new System.Drawing.Size(795, 342);
             this.dgvPhong.TabIndex = 39;
+            this.dgvPhong.SelectionChanged += new System.EventHandler(this.dgvPhong_SelectionChanged);
             // 
             // maphong
             // 
@@ -306,9 +307,9 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.txtTenChuPhong);
-            this.groupBox1.Controls.Add(this.txtTenPhong);
-            this.groupBox1.Controls.Add(this.txtTenLoaiPhong);
+            this.groupBox1.Controls.Add(this.lblTenPhong);
+            this.groupBox1.Controls.Add(this.lblTenLoai);
+            this.groupBox1.Controls.Add(this.lblTenChu);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -319,34 +320,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin Phòng";
             // 
-            // txtTenChuPhong
-            // 
-            this.txtTenChuPhong.Location = new System.Drawing.Point(106, 25);
-            this.txtTenChuPhong.Name = "txtTenChuPhong";
-            this.txtTenChuPhong.ReadOnly = true;
-            this.txtTenChuPhong.Size = new System.Drawing.Size(209, 25);
-            this.txtTenChuPhong.TabIndex = 71;
-            // 
-            // txtTenPhong
-            // 
-            this.txtTenPhong.Location = new System.Drawing.Point(106, 87);
-            this.txtTenPhong.Name = "txtTenPhong";
-            this.txtTenPhong.ReadOnly = true;
-            this.txtTenPhong.Size = new System.Drawing.Size(209, 25);
-            this.txtTenPhong.TabIndex = 70;
-            // 
-            // txtTenLoaiPhong
-            // 
-            this.txtTenLoaiPhong.Location = new System.Drawing.Point(106, 56);
-            this.txtTenLoaiPhong.Name = "txtTenLoaiPhong";
-            this.txtTenLoaiPhong.ReadOnly = true;
-            this.txtTenLoaiPhong.Size = new System.Drawing.Size(209, 25);
-            this.txtTenLoaiPhong.TabIndex = 69;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkBlue;
             this.label4.Location = new System.Drawing.Point(1, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 19);
@@ -357,6 +335,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
             this.label2.Location = new System.Drawing.Point(1, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(105, 19);
@@ -367,6 +346,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkBlue;
             this.label1.Location = new System.Drawing.Point(1, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 19);
@@ -622,6 +602,36 @@
             this.label11.TabIndex = 7;
             this.label11.Text = "Số nước:";
             // 
+            // lblTenPhong
+            // 
+            this.lblTenPhong.AutoSize = true;
+            this.lblTenPhong.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenPhong.Location = new System.Drawing.Point(101, 90);
+            this.lblTenPhong.Name = "lblTenPhong";
+            this.lblTenPhong.Size = new System.Drawing.Size(81, 19);
+            this.lblTenPhong.TabIndex = 7;
+            this.lblTenPhong.Text = "(TenPhong)";
+            // 
+            // lblTenLoai
+            // 
+            this.lblTenLoai.AutoSize = true;
+            this.lblTenLoai.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenLoai.Location = new System.Drawing.Point(101, 59);
+            this.lblTenLoai.Name = "lblTenLoai";
+            this.lblTenLoai.Size = new System.Drawing.Size(67, 19);
+            this.lblTenLoai.TabIndex = 6;
+            this.lblTenLoai.Text = "(TenLoai)";
+            // 
+            // lblTenChu
+            // 
+            this.lblTenChu.AutoSize = true;
+            this.lblTenChu.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenChu.Location = new System.Drawing.Point(101, 28);
+            this.lblTenChu.Name = "lblTenChu";
+            this.lblTenChu.Size = new System.Drawing.Size(66, 19);
+            this.lblTenChu.TabIndex = 5;
+            this.lblTenChu.Text = "(TenChu)";
+            // 
             // FormChiSoThang_All
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -692,9 +702,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ngaycapnhat;
         private System.Windows.Forms.DataGridViewTextBoxColumn chisodien;
         private System.Windows.Forms.DataGridViewTextBoxColumn chisonuoc;
-        private System.Windows.Forms.TextBox txtTenLoaiPhong;
-        private System.Windows.Forms.TextBox txtTenChuPhong;
-        private System.Windows.Forms.TextBox txtTenPhong;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -704,5 +711,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblTenPhong;
+        private System.Windows.Forms.Label lblTenLoai;
+        private System.Windows.Forms.Label lblTenChu;
     }
 }

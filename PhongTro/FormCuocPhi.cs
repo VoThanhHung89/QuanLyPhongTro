@@ -22,7 +22,7 @@ namespace PhongTro
         /// -1:Sửa 0:Thêm 1:Xem
         /// </summary>
         public static int state = 0;
-        public static int macuoc = -1;
+        public static int MaCuoc;
         BAL_CuocPhi balCuoc = new BAL_CuocPhi();
 
         private void FormCuocPhi_Load(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace PhongTro
             }
             else
             {
-                DTOCuocPhi cuoc = balCuoc.DetailCuocPhi(macuoc);
+                DTOCuocPhi cuoc = balCuoc.DetailCuocPhi(MaCuoc);
                 txtMaCuocPhi.Text = cuoc.macuocphi.ToString();
                 txtTenCuocPhi.Text = cuoc.tencuocphi;
                 nmrGiaCuoc.Value = cuoc.giacuocphi;
@@ -99,7 +99,7 @@ namespace PhongTro
                 //Sửa
                 else
                 {
-                    cuoc.macuocphi = macuoc;
+                    cuoc.macuocphi = MaCuoc;
                     try
                     {
                         balCuoc.SuaCuocPhi(cuoc);

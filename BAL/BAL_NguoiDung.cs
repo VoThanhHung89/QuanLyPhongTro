@@ -30,14 +30,14 @@ namespace BAL
             }
         }
 
-        public DTONguoiDung DetailNguoiDung(int mand)
+        public DTONguoiDung DetailNguoiDung(int MaNguoiDung)
         {
-            return GetAll().Where(n=>n.manguoidung == mand).FirstOrDefault();
+            return GetAll().Where(n=>n.manguoidung == MaNguoiDung).FirstOrDefault();
         }
 
-        public List<DTONguoiDung> Search(string timkiem)
+        public List<DTONguoiDung> Search(string TuTim)
         {
-            return GetAll().Where(u => u.tendangnhap.Contains(timkiem)).ToList(); 
+            return GetAll().Where(u => u.tendangnhap.Contains(TuTim)).ToList(); 
         }
 
         public void ThemNguoiDung(DTONguoiDung dtoND)
@@ -58,11 +58,11 @@ namespace BAL
             }
         }
 
-        public void XoaNguoiDung(int mand)
+        public void XoaNguoiDung(int MaNguoiDung)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                pt.NguoiDung_Xoa(mand);
+                pt.NguoiDung_Xoa(MaNguoiDung);
                 pt.SubmitChanges();
             }
         }

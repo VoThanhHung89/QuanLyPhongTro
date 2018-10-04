@@ -26,9 +26,9 @@ namespace BAL
             }
             return liDtoCCP;
         }
-        public List<DTOChiuCuocPhi> ChiuCuocPhiTuMaHopDong(Int64 mahopdong)
+        public List<DTOChiuCuocPhi> ChiuCuocPhiTuMaHopDong(Int64 MaHopDong)
         {
-            return GetAll().Where(c => c.mahopdong == mahopdong).ToList();
+            return GetAll().Where(c => c.mahopdong == MaHopDong).ToList();
         }
         public void ThemChiuCuocPhi(DTOChiuCuocPhi dtoCCP)
         {

@@ -35,33 +35,29 @@ namespace BAL
                 return liDtoK;
             }
         }
-        public DTOKhach DetailKhach(Int64 makhach)
+        public DTOKhach DetailKhach(Int64 MaKhach)
         {
-            return GetAll().Where(k => k.makhach == makhach).FirstOrDefault();
+            return GetAll().Where(k => k.makhach == MaKhach).FirstOrDefault();
         }
-        public List<DTOKhach> Search(int cachtim, string timkiem)
+        public List<DTOKhach> Search(int SearchBy, string TuTim)
         {
             List<DTOKhach> liDtoK = new List<DTOKhach>();
-            switch (cachtim)
+            switch (SearchBy)
             {
                 case 0://Tìm Theo Tên Khách
-                    liDtoK = GetAll().Where(k => k.tenkhach.Contains(timkiem)).ToList();
+                    liDtoK = GetAll().Where(k => k.tenkhach.Contains(TuTim)).ToList();
                     break;
                 case 1://Tìm Theo Ngày Sinh
-                    //int ngay = Convert.ToInt32(timkiem.Substring(0, 2));
-                    //int thang = Convert.ToInt32(timkiem.Substring(3, 2));
-                    //int nam = Convert.ToInt32(timkiem.Substring(6, 4));
-                    //liK = pt.Khaches.Where(k => k.NgaySinh.Day == ngay && k.NgaySinh.Month == thang && k.NgaySinh.Year == nam).ToList();
-                    liDtoK = GetAll().Where(k => k.ngaysinh.Date == Convert.ToDateTime(timkiem).Date).ToList();
+                    liDtoK = GetAll().Where(k => k.ngaysinh.Date == Convert.ToDateTime(TuTim).Date).ToList();
                     break;
                 case 2://Tìm Theo số định danh
-                    liDtoK = GetAll().Where(k => k.sodinhdanh.Contains(timkiem)).ToList();
+                    liDtoK = GetAll().Where(k => k.sodinhdanh.Contains(TuTim)).ToList();
                     break;
                 case 3://Tìm theo Số điện thoại
-                    liDtoK = GetAll().Where(k => k.sodienthoai.Contains(timkiem)).ToList();
+                    liDtoK = GetAll().Where(k => k.sodienthoai.Contains(TuTim)).ToList();
                     break;
                 default://Tìm theo địa chỉ.
-                    liDtoK = GetAll().Where(k => k.diachi.Contains(timkiem)).ToList();
+                    liDtoK = GetAll().Where(k => k.diachi.Contains(TuTim)).ToList();
                     break;
             }
             return liDtoK;
@@ -84,27 +80,27 @@ namespace BAL
                 pt.SubmitChanges();
             }
         }
-        public void XoaKhach(Int64 makhach)
+        public void XoaKhach(Int64 MaKhach)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                pt.Khach_Xoa(makhach);
+                pt.Khach_Xoa(MaKhach);
                 pt.SubmitChanges();
             }
         }
-        public void CapNhatStatusTungKhach(Int64 makhach)
+        public void CapNhatStatusTungKhach(Int64 MaKhach)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                bool trangthai = false;
-                Khach k = pt.Khaches.Where(kh => kh.MaKhach == makhach).FirstOrDefault();
-                List<Int64> liMaHD = pt.ThuePhongs.Where(t => t.MaKhach == makhach).Select(t => t.MaHopDong).ToList();
-                foreach(Int64 mahd in liMaHD)
+                bool TrangThai = false;
+                Khach k = pt.Khaches.Where(kh => kh.MaKhach == MaKhach).FirstOrDefault();
+                List<Int64> liMaHD = pt.ThuePhongs.Where(t => t.MaKhach == MaKhach).Select(t => t.MaHopDong).ToList();
+                foreach(Int64 MaHopDong in liMaHD)
                 {
-                    HopDong hd = pt.HopDongs.Where(h => h.MaHopDong == mahd).FirstOrDefault();
-                    if (hd.Status) trangthai = true;
+                    HopDong hd = pt.HopDongs.Where(h => h.MaHopDong == MaHopDong).FirstOrDefault();
+                    if (hd.Status) TrangThai = true;
                 }
-                k.Status = trangthai;
+                k.Status = TrangThai;
                 pt.SubmitChanges();
             }
         }
@@ -114,14 +110,14 @@ namespace BAL
             {
                 foreach(Khach k in pt.Khaches)
                 {
-                    bool trangthai = false;
+                    bool TrangThai = false;
                     List<Int64> liMaHD = pt.ThuePhongs.Where(t => t.MaKhach == k.MaKhach).Select(t => t.MaHopDong).ToList();
-                    foreach (Int64 mahd in liMaHD)
+                    foreach (Int64 MaHopDong in liMaHD)
                     {
-                        HopDong hd = pt.HopDongs.Where(h => h.MaHopDong == mahd).FirstOrDefault();
-                        if (hd.Status) trangthai = true;
+                        HopDong hd = pt.HopDongs.Where(h => h.MaHopDong == MaHopDong).FirstOrDefault();
+                        if (hd.Status) TrangThai = true;
                     }
-                    k.Status = trangthai;
+                    k.Status = TrangThai;
                 }
                 pt.SubmitChanges();
             }

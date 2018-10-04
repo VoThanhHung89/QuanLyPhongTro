@@ -27,17 +27,17 @@ namespace BAL
                 return liDtoCuoc;
             }
         }
-        public DTOCuocPhi DetailCuocPhi(int macuoc)
+        public DTOCuocPhi DetailCuocPhi(int MaCuoc)
         {
-            return GetAll().Where(c => c.macuocphi == macuoc).FirstOrDefault();
+            return GetAll().Where(c => c.macuocphi == MaCuoc).FirstOrDefault();
         }
-        public List<DTOCuocPhi> Search(int searchby, string timkiem)
+        public List<DTOCuocPhi> Search(int SearchBy, string TuTim)
         {
             List<DTOCuocPhi> liDtoCuoc = new List<DTOCuocPhi>();
-            if (searchby == 0)
-                liDtoCuoc = GetAll().Where(c => c.tencuocphi.Contains(timkiem)).ToList();
+            if (SearchBy == 0)
+                liDtoCuoc = GetAll().Where(c => c.tencuocphi.Contains(TuTim)).ToList();
             else
-                liDtoCuoc = GetAll().Where(c => c.thongtin.Contains(timkiem)).ToList();
+                liDtoCuoc = GetAll().Where(c => c.thongtin.Contains(TuTim)).ToList();
             return liDtoCuoc;
         }
         public void ThemCuocPhi(DTOCuocPhi dtoCuoc)
@@ -56,11 +56,11 @@ namespace BAL
                 pt.SubmitChanges();
             }
         }
-        public void XoaCuocPhi(int macuoc)
+        public void XoaCuocPhi(int MaCuoc)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                pt.CuocPhi_Xoa(macuoc);
+                pt.CuocPhi_Xoa(MaCuoc);
                 pt.SubmitChanges();
             }
         }

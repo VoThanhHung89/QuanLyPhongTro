@@ -22,7 +22,7 @@ namespace PhongTro
         BAL_LoaiPhong balLP = new BAL_LoaiPhong();
         BAL_Phong balP = new BAL_Phong();
         BAL_ChiSoThang balCST = new BAL_ChiSoThang();
-        public static int maphongDetail = -1;
+        public static int MaPhongCST;
 
         private void ClearBinding()
         {
@@ -33,13 +33,10 @@ namespace PhongTro
 
         private void LoadData()
         {
-            if(maphongDetail >= 0)
-            {
-                txtTenPhong.Text = balP.DetailPhong(maphongDetail).tenphong;
-                txtTenLoaiPhong.Text = balLP.DetailLoaiPhong(balP.DetailPhong(maphongDetail).maloaiphong).tenloaiphong;
-                txtTenChuPhong.Text = balCP.DetailChuPhong(balLP.DetailLoaiPhong(balP.DetailPhong(maphongDetail).maloaiphong).machuphong).tenchuphong;
-                dgvPhong.DataSource = balCST.ChiSoTheoMaPhongAllTime(maphongDetail);
-            }
+            lblTenPhong.Text = balP.DetailPhong(MaPhongCST).tenphong;
+            lblTenLoai.Text = balLP.DetailLoaiPhong(balP.DetailPhong(MaPhongCST).maloaiphong).tenloaiphong;
+            lblTenChu.Text = balCP.DetailChuPhong(balLP.DetailLoaiPhong(balP.DetailPhong(MaPhongCST).maloaiphong).machuphong).tenchuphong;
+            dgvPhong.DataSource = balCST.ChiSoTheoMaPhongAllTime(MaPhongCST);
             if (dgvPhong.Rows.Count > 0)
             {
                 ClearBinding();
@@ -86,7 +83,7 @@ namespace PhongTro
             {
                 DTOChiSoThang dtoCST = new DTOChiSoThang()
                 {
-                    maphong = maphongDetail,
+                    maphong = MaPhongCST,
                     ngaycapnhat = dtpNgayCapNhat.Value
                 };
                 balCST.XoaChiSoThang(dtoCST);
@@ -99,13 +96,13 @@ namespace PhongTro
         {
             DTOChiSoThang dtoCST = new DTOChiSoThang()
             {
-                maphong = maphongDetail,
+                maphong = MaPhongCST,
                 ngaycapnhat = dtpNgayCapNhat.Value,
                 chisodien = Convert.ToInt64(txtSoDien.Text),
                 chisonuoc = Convert.ToInt64(txtSoNuoc.Text)
             };
             //Thêm
-            if (!balCST.CheckCST(maphongDetail, dtpNgayCapNhat.Value))
+            if (!balCST.CheckCST(MaPhongCST, dtpNgayCapNhat.Value))
             {
                 try { balCST.ThemChiSoThang(dtoCST); MessageBox.Show("Thêm dữ liệu thành công.", "Thông báo"); }
                     catch(Exception ex) { MessageBox.Show("Thêm dữ liệu thất bại."+ex.ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error); }

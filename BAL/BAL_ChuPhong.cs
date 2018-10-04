@@ -30,9 +30,9 @@ namespace BAL
                 return liDtoCP;
             }
         }
-        public DTOChuPhong DetailChuPhong(int machu)
+        public DTOChuPhong DetailChuPhong(int MaChu)
         {
-            return GetAll().Where(c => c.machuphong == machu).FirstOrDefault();
+            return GetAll().Where(c => c.machuphong == MaChu).FirstOrDefault();
         }
         /// <summary>
         /// Tìm kiếm
@@ -40,22 +40,22 @@ namespace BAL
         /// <param name="searchby">-0:Tên chủ phòng -1:Số định danh -2:Số điện thoại -3:Địa chỉ</param>
         /// <param name="timkiem"></param>
         /// <returns></returns>
-        public List<DTOChuPhong> Search(int searchby, string timkiem)
+        public List<DTOChuPhong> Search(int SearchBy, string TuTim)
         {
             List<DTOChuPhong> liDtoCP = new List<DTOChuPhong>();
-            switch (searchby)
+            switch (SearchBy)
             {
                 case 0:
-                    liDtoCP = GetAll().Where(c => c.tenchuphong.Contains(timkiem)).ToList();
+                    liDtoCP = GetAll().Where(c => c.tenchuphong.Contains(TuTim)).ToList();
                     break;
                 case 1:
-                    liDtoCP = GetAll().Where(c => c.sodinhdanh.Contains(timkiem)).ToList();
+                    liDtoCP = GetAll().Where(c => c.sodinhdanh.Contains(TuTim)).ToList();
                     break;
                 case 2:
-                    liDtoCP = GetAll().Where(c => c.sodienthoai.Contains(timkiem)).ToList();
+                    liDtoCP = GetAll().Where(c => c.sodienthoai.Contains(TuTim)).ToList();
                     break;
                 default:
-                    liDtoCP = GetAll().Where(c => c.diachi.Contains(timkiem)).ToList();
+                    liDtoCP = GetAll().Where(c => c.diachi.Contains(TuTim)).ToList();
                     break;
             }
             return liDtoCP;
@@ -76,11 +76,11 @@ namespace BAL
                 pt.SubmitChanges();
             }
         }
-        public void XoaChuphong(int machu)
+        public void XoaChuphong(int MaChu)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                pt.ChuPhong_Xoa(machu);
+                pt.ChuPhong_Xoa(MaChu);
                 pt.SubmitChanges();
             }
         }

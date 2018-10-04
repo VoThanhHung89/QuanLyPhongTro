@@ -29,17 +29,17 @@ namespace BAL
                 return liP;
             }
         }
-        public List<DTOPhong> GetAllByMaLoai(int maloai)
+        public List<DTOPhong> GetAllByMaLoai(int MaLoai)
         {
-            return GetAll().Where(p=>p.maloaiphong == maloai).ToList();
+            return GetAll().Where(p=>p.maloaiphong == MaLoai).ToList();
         }
-        public DTOPhong DetailPhong(int maphong)
+        public DTOPhong DetailPhong(int MaPhong)
         {
-            return GetAll().Where(p => p.maphong == maphong).FirstOrDefault();
+            return GetAll().Where(p => p.maphong == MaPhong).FirstOrDefault();
         }
-        public List<DTOPhong> Search(int maloai, string timkiem)
+        public List<DTOPhong> Search(int MaLoai, string TuTim)
         {
-            return GetAll().Where(p => p.maloaiphong == maloai && p.tenphong.Contains(timkiem)).ToList();
+            return GetAll().Where(p => p.maloaiphong == MaLoai && p.tenphong.Contains(TuTim)).ToList();
         }
         /// <summary>
         /// Tìm kiếm rút gọn.
@@ -47,32 +47,32 @@ namespace BAL
         /// <param name="searchby">0:tenchuphong-1:tenloaiphong-2:tenphong-3:All</param>
         /// <param name="timkiem"></param>
         /// <returns></returns>
-        public List<DTOPhong> SearchP_LP_CP(int searchby, string timkiem)
+        public List<DTOPhong> SearchP_LP_CP(int SearchBy, string TuTim)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
                 List<Phong> liP = new List<Phong>();
-                switch (searchby)
+                switch (SearchBy)
                 {
                     case 0:
                         liP = (from p in pt.Phongs
                                 join lp in pt.LoaiPhongs on p.MaLoaiPhong equals lp.MaLoaiPhong
                                 join cp in pt.ChuPhongs on lp.MaChuPhong equals cp.MaChuPhong
-                                where (cp.TenChuPhong.Contains(timkiem))
+                                where (cp.TenChuPhong.Contains(TuTim))
                                 select p).ToList() ;
                         break;
                     case 1:
                         liP = (from p in pt.Phongs
                                      join lp in pt.LoaiPhongs on p.MaLoaiPhong equals lp.MaLoaiPhong
                                      join cp in pt.ChuPhongs on lp.MaChuPhong equals cp.MaChuPhong
-                                     where (lp.TenLoaiPhong.Contains(timkiem))
+                                     where (lp.TenLoaiPhong.Contains(TuTim))
                                      select p).ToList();
                         break;
                     case 2:
                         liP = (from p in pt.Phongs
                                      join lp in pt.LoaiPhongs on p.MaLoaiPhong equals lp.MaLoaiPhong
                                      join cp in pt.ChuPhongs on lp.MaChuPhong equals cp.MaChuPhong
-                                     where (p.TenPhong.Contains(timkiem))
+                                     where (p.TenPhong.Contains(TuTim))
                                      select p).ToList();
                         break;
                     default:
@@ -112,11 +112,11 @@ namespace BAL
                 pt.SubmitChanges();
             }
         }
-        public void XoaPhong(int maphong)
+        public void XoaPhong(int MaPhong)
         {
             using (PhongTroDBDataContext pt = new PhongTroDBDataContext())
             {
-                pt.Phong_Xoa(maphong);
+                pt.Phong_Xoa(MaPhong);
                 pt.SubmitChanges();
             }
         }

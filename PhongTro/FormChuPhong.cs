@@ -25,7 +25,7 @@ namespace PhongTro
         /// <summary>
         /// Mã chủ phòng.
         /// </summary>
-        public static int machuphong = -1;
+        public static int MaChuPhong;
         BAL_ChuPhong balCP = new BAL_ChuPhong();
 
         private void FormChuPhong_Load(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace PhongTro
             }
             else
             {
-                DTOChuPhong cp = balCP.DetailChuPhong(machuphong);
+                DTOChuPhong cp = balCP.DetailChuPhong(MaChuPhong);
                 txtMaChuPhong.Text = cp.machuphong.ToString();
                 txtTenChuPhong.Text = cp.tenchuphong;
                 if(cp.gioitinh) { rdbNam.Checked = true; }
@@ -108,7 +108,7 @@ namespace PhongTro
                 //Sửa
                 else
                 {
-                    cp.machuphong = machuphong;
+                    cp.machuphong = MaChuPhong;
                     try
                     {
                         balCP.SuaChuPhong(cp);

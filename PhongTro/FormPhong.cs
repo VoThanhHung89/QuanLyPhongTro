@@ -19,8 +19,8 @@ namespace PhongTro
             InitializeComponent();
         }
         public static int state = 0;
-        public static int maphong = -1;
-        public static int maloai = -1;
+        public static int MaPhong;
+        public static int MaLoai;
         BAL_Phong balP = new BAL_Phong();
         BAL_LoaiPhong balLP = new BAL_LoaiPhong();
         
@@ -31,7 +31,7 @@ namespace PhongTro
             cboTenLoaiPhong.ValueMember = "MaLoaiPhong";
             cboTenLoaiPhong.DataSource = balLP.GetAll();
 
-            if (maloai != -1) cboTenLoaiPhong.SelectedValue = maloai;
+            cboTenLoaiPhong.SelectedValue = MaLoai;
             //Thêm
             if (state ==0)
             {
@@ -44,7 +44,7 @@ namespace PhongTro
             }
             else
             {
-                DTOPhong p = balP.DetailPhong(maphong);
+                DTOPhong p = balP.DetailPhong(MaPhong);
                 txtMaPhong.Text = p.maphong.ToString();
                 txtTenPhong.Text = p.tenphong;
                 if (p.status) rdbDaThue.Checked = true;
@@ -109,7 +109,7 @@ namespace PhongTro
                 //Sửa
                 else
                 {
-                    p.maphong = maphong;
+                    p.maphong = MaPhong;
                     try
                     {
                         balP.SuaPhong(p);

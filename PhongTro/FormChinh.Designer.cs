@@ -51,7 +51,6 @@
             this.kháchThuêTrọToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mniKhachThue = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mniThemKhach = new System.Windows.Forms.ToolStripMenuItem();
             this.hợpĐồngThuêTrọToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mniThongTinHopDong = new System.Windows.Forms.ToolStripMenuItem();
@@ -222,6 +221,8 @@
             // 
             // toolStripMenuItem3
             // 
+            this.toolStripMenuItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem3.Image")));
+            this.toolStripMenuItem3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(269, 38);
             this.toolStripMenuItem3.Text = "Tính Tiền Thuê Phòng";
@@ -240,7 +241,6 @@
             this.kháchThuêTrọToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniKhachThue,
             this.toolStripSeparator3,
-            this.toolStripMenuItem2,
             this.mniThemKhach});
             this.kháchThuêTrọToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("kháchThuêTrọToolStripMenuItem.Image")));
             this.kháchThuêTrọToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -261,12 +261,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(307, 6);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(310, 38);
-            this.toolStripMenuItem2.Text = "Chuyển Phòng cho Khách Thuê";
             // 
             // mniThemKhach
             // 
@@ -388,7 +382,6 @@
         private System.Windows.Forms.ToolStripMenuItem mniCapNhatDienNuoc;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

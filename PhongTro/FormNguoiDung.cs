@@ -22,7 +22,7 @@ namespace PhongTro
         /// -1:sửa 0:thêm 1:xem 
         /// </summary>
         public static int state = 0;
-        public static int manguoidung = -1;
+        public static int MaNguoiDung ;
         BAL_NguoiDung balND = new BAL_NguoiDung();
 
         private void FormNguoiDung_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace PhongTro
             }
             else
             {
-                DTONguoiDung nd = balND.DetailNguoiDung(manguoidung);
+                DTONguoiDung nd = balND.DetailNguoiDung(MaNguoiDung);
                 txtMaNguoiDung.Text = nd.madangnhap.ToString();
                 txtTenDangNhap.Text = nd.tendangnhap;
                 if (nd.madangnhap != null)
@@ -119,7 +119,7 @@ namespace PhongTro
                 //Sửa.
                 else
                 {
-                    nd.manguoidung = manguoidung;
+                    nd.manguoidung = MaNguoiDung;
                     try
                     {
                         balND.SuaNguoiDung(nd);

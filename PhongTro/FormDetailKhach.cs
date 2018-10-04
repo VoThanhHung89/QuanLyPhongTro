@@ -20,7 +20,7 @@ namespace PhongTro
         }
         BAL_Khach balK = new BAL_Khach();
         public static int state = -1;
-        public static Int64 makhach = -1;
+        public static Int64 makhach;
         // Dùng -18 để loại PhongTro/bin/debug
         private string pathNoPic = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().Length - 18) + @"Image\Customer_96px.png";
         private string pathPic = System.IO.Directory.GetCurrentDirectory().Substring(0, System.IO.Directory.GetCurrentDirectory().Length - 18) + @"Image\Customer\";

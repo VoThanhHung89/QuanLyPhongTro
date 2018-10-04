@@ -77,7 +77,7 @@
             this.tenphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.trangthai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tinhtrangphong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doiphong = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.quanly = new System.Windows.Forms.DataGridViewLinkColumn();
             this.chisothang = new System.Windows.Forms.DataGridViewLinkColumn();
             this.xem_P = new System.Windows.Forms.DataGridViewLinkColumn();
             this.sua_P = new System.Windows.Forms.DataGridViewLinkColumn();
@@ -514,7 +514,7 @@
             this.tenphong,
             this.trangthai,
             this.tinhtrangphong,
-            this.doiphong,
+            this.quanly,
             this.chisothang,
             this.xem_P,
             this.sua_P,
@@ -579,21 +579,21 @@
             this.tinhtrangphong.Name = "tinhtrangphong";
             this.tinhtrangphong.ReadOnly = true;
             // 
-            // doiphong
+            // quanly
             // 
-            this.doiphong.ActiveLinkColor = System.Drawing.Color.Blue;
+            this.quanly.ActiveLinkColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Blue;
-            this.doiphong.DefaultCellStyle = dataGridViewCellStyle9;
-            this.doiphong.HeaderText = "Đổi phòng";
-            this.doiphong.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.doiphong.LinkColor = System.Drawing.Color.Blue;
-            this.doiphong.Name = "doiphong";
-            this.doiphong.Text = "Đổi phòng";
-            this.doiphong.UseColumnTextForLinkValue = true;
-            this.doiphong.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.doiphong.Width = 80;
+            this.quanly.DefaultCellStyle = dataGridViewCellStyle9;
+            this.quanly.HeaderText = "Quản lý thuê";
+            this.quanly.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.quanly.LinkColor = System.Drawing.Color.Blue;
+            this.quanly.Name = "quanly";
+            this.quanly.Text = "Quản lý";
+            this.quanly.UseColumnTextForLinkValue = true;
+            this.quanly.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.quanly.Width = 80;
             // 
             // chisothang
             // 
@@ -723,7 +723,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenphong;
         private System.Windows.Forms.DataGridViewCheckBoxColumn trangthai;
         private System.Windows.Forms.DataGridViewTextBoxColumn tinhtrangphong;
-        private System.Windows.Forms.DataGridViewLinkColumn doiphong;
+        private System.Windows.Forms.DataGridViewLinkColumn quanly;
         private System.Windows.Forms.DataGridViewLinkColumn chisothang;
         private System.Windows.Forms.DataGridViewLinkColumn xem_P;
         private System.Windows.Forms.DataGridViewLinkColumn sua_P;

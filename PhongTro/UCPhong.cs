@@ -60,7 +60,7 @@ namespace PhongTro
                 if (cboTenChuPhong.Items.Count > 0)
                 {
                     FormLoaiPhong.state = 0;
-                    FormLoaiPhong.machu = Convert.ToInt32(cboTenChuPhong.SelectedValue);
+                    FormLoaiPhong.MaChu = Convert.ToInt32(cboTenChuPhong.SelectedValue);
                     FormLoaiPhong frm = new FormLoaiPhong();
                     frm.ShowDialog();
                     dgvLoaiPhong.DataSource = balLP.GetAllByMaChu(Convert.ToInt32(cboTenChuPhong.SelectedValue));
@@ -92,8 +92,8 @@ namespace PhongTro
             if(dgvLoaiPhong.Columns[e.ColumnIndex].Name == "xem_LP" && e.RowIndex > -1)//Xem
             {
                 FormLoaiPhong.state = 1;
-                FormLoaiPhong.maloai = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["maloaiphong_LP"].Value);
-                FormLoaiPhong.machu = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["machuphong_LP"].Value);
+                FormLoaiPhong.MaLoai = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["maloaiphong_LP"].Value);
+                FormLoaiPhong.MaChu = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["machuphong_LP"].Value);
                 FormLoaiPhong frm = new FormLoaiPhong();
                 frm.ShowDialog();
                 dgvLoaiPhong.DataSource = balLP.GetAllByMaChu(Convert.ToInt32(cboTenChuPhong.SelectedValue));
@@ -101,8 +101,8 @@ namespace PhongTro
             else if (dgvLoaiPhong.Columns[e.ColumnIndex].Name == "sua_LP" && e.RowIndex > -1)//sửa
             {
                 FormLoaiPhong.state = -1;
-                FormLoaiPhong.maloai = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["maloaiphong_LP"].Value);
-                FormLoaiPhong.machu = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["machuphong_LP"].Value);
+                FormLoaiPhong.MaLoai = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["maloaiphong_LP"].Value);
+                FormLoaiPhong.MaChu = Convert.ToInt32(dgvLoaiPhong.Rows[e.RowIndex].Cells["machuphong_LP"].Value);
                 FormLoaiPhong frm = new FormLoaiPhong();
                 frm.ShowDialog();
                 dgvLoaiPhong.DataSource = balLP.GetAllByMaChu(Convert.ToInt32(cboTenChuPhong.SelectedValue));
@@ -136,7 +136,7 @@ namespace PhongTro
             if (dgvLoaiPhong.RowCount>0)
             {
                 FormPhong.state = 0;
-                FormPhong.maloai = Convert.ToInt32(cboLoaiPhong.SelectedValue);
+                FormPhong.MaLoai = Convert.ToInt32(cboLoaiPhong.SelectedValue);
                 FormPhong frm = new FormPhong();
                 frm.ShowDialog();
                 dgvPhong.DataSource = balP.GetAllByMaLoai(Convert.ToInt32(dgvLoaiPhong.CurrentRow.Cells["maloaiphong_LP"].Value));
@@ -161,31 +161,31 @@ namespace PhongTro
 
         private void dgvPhong_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvPhong.Columns[e.ColumnIndex].Name == "doiphong" && e.RowIndex > -1)//Quản lý thuê phòng
+            if (dgvPhong.Columns[e.ColumnIndex].Name == "quanly" && e.RowIndex > -1)//Quản lý thuê phòng
             {
-                FormChuyenPhong.maphongOld= Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
-                FormChuyenPhong frm = new FormChuyenPhong();
+                FormHopDongCuaPhong.MaPhong= Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
+                FormHopDongCuaPhong frm = new FormHopDongCuaPhong();
                 frm.ShowDialog();
             }
             else if (dgvPhong.Columns[e.ColumnIndex].Name == "chisothang" && e.RowIndex > -1)//Số điện - nước
             {
-                FormChiSoThang_Detail.maphongDetail = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
+                FormChiSoThang_Detail.MaPhongCST = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
                 FormChiSoThang_Detail frm = new FormChiSoThang_Detail();
                 frm.ShowDialog();
             }
             else if (dgvPhong.Columns[e.ColumnIndex].Name == "xem_P" && e.RowIndex > -1)//Xem
             {
                 FormPhong.state = 1;
-                FormPhong.maphong = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
-                FormPhong.maloai = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maloaiphong_P"].Value);
+                FormPhong.MaPhong = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
+                FormPhong.MaLoai = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maloaiphong_P"].Value);
                 FormPhong frm = new FormPhong();
                 frm.ShowDialog();
             }
             else if (dgvPhong.Columns[e.ColumnIndex].Name == "sua_P" && e.RowIndex > -1)//sửa
             {
                 FormPhong.state = -1;
-                FormPhong.maphong = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
-                FormPhong.maloai = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maloaiphong_P"].Value);
+                FormPhong.MaPhong = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maphong"].Value);
+                FormPhong.MaLoai = Convert.ToInt32(dgvPhong.Rows[e.RowIndex].Cells["maloaiphong_P"].Value);
                 FormPhong frm = new FormPhong();
                 frm.ShowDialog();
                 dgvPhong.DataSource = balP.GetAllByMaLoai(Convert.ToInt32(cboLoaiPhong.SelectedValue));
